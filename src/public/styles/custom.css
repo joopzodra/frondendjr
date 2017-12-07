@@ -1,3 +1,6 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
 /*
 /* Home page
 */
@@ -48,11 +51,23 @@ button {
   padding-top: 16px;
   padding-bottom: 16px;
 }
-#contact .fa {
-  width: 30px;
+#contact-inner {
+  width: 200px;
+  margin: 30px auto 0;
 }
-form .w3-half {
-  margin:  8px 0;
+#contact-mail {
+  background-image: url('/img/icons/iconmonstr-email-3-24.png');
+}
+#contact-phone {
+  background-image: url('/img/icons/iconmonstr-phone-1-24.png');
+  height: 30px;
+}
+#contact-adress {
+  background-image: url('/img/icons/iconmonstr-location-1-24.png');
+}
+#contact-mail, #contact-phone, #contact-adress {
+  background-repeat: no-repeat;
+  padding-left: 39px;
 }
 #leaflet-map {
   display: none;
@@ -114,13 +129,6 @@ form .w3-half {
   #contact {
     padding-top: 64px;
     padding-bottom: 32px;
-  }
-  #contact .w3-row {
-    padding-top: 32px;
-    padding-bottom: 32px;  
-  }
-  form .w3-half {
-    margin:  0;
   }
   #leaflet-map {
     height:400px;

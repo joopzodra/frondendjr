@@ -39,7 +39,7 @@ block content
           .portfolio-category-container
             each post in item.value
               .portfolio-panel.w3-margin-bottom.w3-white         
-                a(href='/' + post.fileName, class='portfolio-item w3-hover-opacity')
+                a(href='/' + post.fileName, class='portfolio-item')
                   .portfolio-panel-inner-container           
                     .portfolio-header.w3-container
                       p.w3-large
@@ -54,33 +54,16 @@ block content
     p.w3-opacity.w3-center
       i Vragen? Nader kennismaken? Stuur een bericht.
 
-    #form.w3-row
-
-      .w3-col.m6.w3-large.w3-margin-bottom
-        i.fa.fa-map-marker
+    #contact-inner
+      p#contact-mail
+        a(href='mailto:joop@zodra.nl') joop@zodra.nl
+      p#contact-phone
+        |06 2759 0710
+      p#contact-adress
         |Nude 60
         br
-        i.fa
         |6702 DN Wageningen
-        br
-        i.fa.fa-phone
-        |06 2759 0710
-        br
-        i.fa.fa-envelope 
-        a(href='mailto:joop@zodra.nl') joop@zodra.nl
 
-      .w3-col.m6
-        form(action='/' method='post')
-          .w3-row-padding(style='margin:0 -16px 8px -16px')
-            .w3-half
-              input.w3-input.w3-border(type='text' placeholder='Naam' name='name' required value=(formdata===undefined ? '' : formdata.name))
-            .w3-half
-              input.w3-input.w3-border(type='email' placeholder='E-mail' name='email' required value=(formdata===undefined ? '' : formdata.email))
-              if errors
-                p.w3-text-red.w3-small= errors[0].msg  
-          textarea.w3-input.w3-border(rows='3' placeholder='Je bericht' name='message' required value=(formdata===undefined ? '' : formdata.message))
-          button.w3-button.w3-theme-d3.w3-section.w3-right(type='submit') VERSTUUR
-  
   #leaflet-map.w3-grayscale-max
 
 block footerCss

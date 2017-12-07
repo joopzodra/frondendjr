@@ -24,11 +24,6 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/', (req, res) => {
-    res.send('Het formulier is in onderhoud. Stuur je bericht per mail naar joop@zodra.nl');
-});
-
-
 app.get(/^(\/\d{4}-\d{2}-\d{2}-.+?)(\/.*)?$/, (req, res, next) => {
   //if url contains a '/' plus more after date+words, take only the part before the '/'
   res.render('posts' + req.params[0], {data: postlist}, (err, html) => {

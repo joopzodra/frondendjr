@@ -1,0 +1,23 @@
+extends ../post
+
+block vars
+  - var title = 'Boeken'
+  - var description = 'Angular demo: boekencatalogus. Voeg zelf boeken toe vanuit openbare online database.'
+  - var category = 'ANGULAR'
+  - var featuredImg = '/img/featured-img/boeken.jpg'
+
+
+block articlecontent
+  p 
+    |Een aanzet voor een catalogus-app. Van nieuwe boeken die je zoekt haalt de app info op uit de database van 
+    a(href='https://www.goodreads.com/') GoodReads.com
+    |, via de openbare API van GoodReads. Bij deze demo wordt je boekendata in de browser opgeslagen en bewaard tot je het venster of de tab sluit.
+  p 
+    |De demo is alleen om te laten zien wat je kunt met Angular. Als je zelf je boekenbezit, leeslijst en zo wilt bijhouden, kun je dat het beste gewoon via 
+    a(href='https://www.goodreads.com/') GoodReads
+    |  doen.
+  p
+    a(href='https://github.com/joopzodra/boeken') Bekijk de broncode van de app op GitHub.
+  p
+    a(href='/apps/boeken') Ga naar de app
+      img(src="img/featured-img/boeken-600.jpg" class="article-featured-img")

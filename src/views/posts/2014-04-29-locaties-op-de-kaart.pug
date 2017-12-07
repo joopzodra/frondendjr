@@ -1,0 +1,48 @@
+extends ../post
+
+block vars
+ - var title = 'Locaties op de kaart'
+ - var description = 'Waar kun je je boodschappen doen in Wageningen? Om het makkelijk te maken kun je zoeken op het soort winkel.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/locaties-op-de-kaart.jpg'
+
+block articlecontent
+  p
+      | Waar kun je je boodschappen doen in Wageningen? Je kunt zoeken op het soort winkel. En switchen tussen een Kadaster- en Google-kaart.
+      #map-buttons
+        button#button-leaflet
+          span.vinkje &check;
+          |  Kadaster kaart
+        button#button-google.unselected
+          span.vinkje &check;
+          |  Google Maps
+      #kaart-1-container
+        #kaart-1 KAART
+      div
+        select#optionset-kaart-1
+          option(disabled='disabled', selected='selected', value='') Wat voor winkel zoek je? &mldr;
+          option(value='super') Supermarkt
+          option(value='bakker') Bakker, banketbakker
+          option(value='slager') Slager
+          option(value='groenten') Groenten en fruit
+          option(value='vis') Vis
+          option(value='kaas') Kaas
+          option(value='dranken') Dranken
+          option(value='koffie') Koffie en thee
+          option(value='toko') Toko
+          option(value='markt') Markt
+          option(value='biologisch') Biologische voeding
+      #tekst-kaart-1
+
+block footerCss
+  link(href='/apps/locaties-op-de-kaart/locaties-op-de-kaart.css' rel='stylesheet')
+  link(href='/styles/vendor-css/leaflet-0.7.3/leaflet.css' rel='stylesheet')
+  link(href='/styles/vendor-css/leaflet-plugins/leaflet.label.css' rel='stylesheet')  
+block footerScripts
+  script(async defer src="https://maps.googleapis.com/maps/api/js?v=3.28&key=AIzaSyBk4Sr8DjsEUoniIWsBN66LzMcFl5TvVzk&=initMap")
+  script(type='text/javascript' src='/js/leaflet/leaflet-0.7.3/leaflet.js')
+  script(type='text/javascript' src='/js/leaflet/leaflet-plugins/leaflet.label.js')
+  script(type='text/javascript' src='/js/leaflet/proj4js-compressed.js')
+  script(type='text/javascript' src='/js/leaflet/proj4leaflet.js')
+  script(type='text/javascript' src='/js/leaflet/markerwithlabel_packed.js')
+  script(type='text/javascript' src='apps/locaties-op-de-kaart/locaties-op-de-kaart.js')

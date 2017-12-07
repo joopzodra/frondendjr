@@ -1,0 +1,85 @@
+Aandoening,Leeftijd,2001,2002,2003,2004,2005,2006,2007,2008,2009
+Hoge bloeddruk,Totaal,8.6,9.7,9.6,9.9,11.1,11.8,12,12.4,13.5
+Hoge bloeddruk,tot45,4.2,6.3,4.8,5.9,5.9,6.1,7,6.7,5.5
+Hoge bloeddruk,tot55,13.9,12.8,11.5,13.4,14.8,14.3,15,13.2,13.8
+Hoge bloeddruk,tot65,20.8,22.1,23.5,21.2,25.1,25.5,24.3,25.4,28.5
+Hoge bloeddruk,tot75,25.7,28.4,29.1,29.3,29.6,32.2,33.7,36.6,38.9
+Hoge bloeddruk,boven75,22.5,32.6,34.9,35.2,37.7,40.4,36.6,38,42.9
+Gewrichtsslijtage,Totaal,8.2,8.8,9.2,9.6,9.7,9.6,9.9,10.2,10.9
+Gewrichtsslijtage,tot45,4.2,4.7,3.8,4.8,3.7,3.9,3.6,3.8,4.2
+Gewrichtsslijtage,tot55,11.6,11.7,10.5,10.8,12.2,11,9.6,11.4,11.2
+Gewrichtsslijtage,tot65,16.6,19.3,20.1,20.8,20.1,21.4,20.8,20.7,21.9
+Gewrichtsslijtage,tot75,25.9,28.1,28.8,31.2,30.4,28.3,28.3,29.9,29.6
+Gewrichtsslijtage,boven75,35.8,36.9,42.8,39.6,38.9,38.9,42.8,38.6,39.5
+"Astma, chron.bronchitis, CARA",Totaal,7,7.4,7.7,7.3,8.2,7.6,7.2,7.7,7.4
+"Astma, chron.bronchitis, CARA",tot45,5.3,4.7,7.2,7.5,7.1,4.8,5.5,6.6,4.6
+"Astma, chron.bronchitis, CARA",tot55,5.1,6.2,6.8,7.7,7.2,6.7,7.1,7,7.1
+"Astma, chron.bronchitis, CARA",tot65,5.4,5.2,6.7,5,10,8.9,7.2,7.2,7.9
+"Astma, chron.bronchitis, CARA",tot75,8.9,9.1,8,11.4,9.9,11.6,10.1,10,10.5
+"Astma, chron.bronchitis, CARA",boven75,10.9,10.5,12,11.6,11.1,14.4,11.3,13.3,13.6
+Diabetes type2,Totaal,2.2,1.7,2.3,2.4,2.7,2.8,3.2,3.1,3.3
+Diabetes type2,tot45,0.8,0.3,0.5,0.9,0.8,0.9,0.8,0.9,0.5
+Diabetes type2,tot55,2.2,1.2,2,2,2.9,2.6,3.7,2.2,2.3
+Diabetes type2,tot65,5.4,4.4,6.4,5.3,5.9,6,5.8,7.8,7.4
+Diabetes type2,tot75,8.5,7.7,9.6,9.6,10.8,11.1,12.7,9.7,10
+Diabetes type2,boven75,11,8.3,8.7,11.1,10.9,10.9,11.6,12.2,14.5
+Ooit beroerte gehad,Totaal,1.2,1.6,1.8,1.5,1.9,1.9,2,1.9,2
+Ooit beroerte gehad,tot45,0.5,0.9,0.7,0.2,0.5,1.2,0.9,0.3,0.8
+Ooit beroerte gehad,tot55,1.3,1.9,1.5,1.4,1.4,1.5,1.6,1,1.5
+Ooit beroerte gehad,tot65,2.1,1.7,4.3,4.2,3.6,2.6,3.9,3.2,4
+Ooit beroerte gehad,tot75,4.2,6.3,5.5,3.6,5.1,7.6,6.1,7.2,4.7
+Ooit beroerte gehad,boven75,7.4,7,10.4,9.2,10.9,9.4,9.8,11,10.3
+Hartaandoening,Totaal,1.2,1.1,1.4,1.5,1.4,1.5,1.9,1.7,1.8
+Hartaandoening,tot45,0.4,0.2,0.5,0.5,0.3,0.3,0.6,0.4,0.5
+Hartaandoening,tot55,0.7,1.4,0.7,1.7,1.8,0.9,1.6,1.4,1.2
+Hartaandoening,tot65,2,2.9,2.6,3.2,2.5,2.6,2.1,2.9,3.1
+Hartaandoening,tot75,5.8,4,5.4,5.9,3.9,6.4,7.4,5.5,5.2
+Hartaandoening,boven75,7.6,5.2,9.2,7.8,7.9,9,12.1,9.3,10.5
+Ooit hartinfarct gehad,Totaal,2,2.2,2.3,2.3,2.3,2.2,2.2,1.9,2.3
+Ooit hartinfarct gehad,tot45,0.4,0.4,0.9,0.7,0.9,0.1,0.2,0.5,0.1
+Ooit hartinfarct gehad,tot55,1.3,1.6,1.7,1.1,1.5,1.6,1.4,1.2,1.5
+Ooit hartinfarct gehad,tot65,4.5,5.9,4.1,4.6,4.1,4.5,3.8,2.9,3.7
+Ooit hartinfarct gehad,tot75,10.4,8.9,11.1,10.4,8.8,10.5,10.4,7,8.5
+Ooit hartinfarct gehad,boven75,9.8,10.9,11.4,13.3,14.2,9,10.2,9.9,13.5
+Incontinentie,Totaal,3.6,3.6,3.4,3.7,3.7,3.4,3.8,3.7,4.2
+Incontinentie,tot45,2.7,3.9,3.2,2.8,2.1,1.8,2.8,2.8,2.3
+Incontinentie,tot55,5,4.4,4.2,4.5,4.8,4,3.7,4.3,4.6
+Incontinentie,tot65,5.4,4.7,5.5,6.8,6.3,6,6.6,5.2,6.4
+Incontinentie,tot75,9.6,7.5,10.6,8.5,9.4,9.8,7.1,8,7.7
+Incontinentie,boven75,16.9,15.1,13.1,16.3,15.9,14.6,20.2,16.3,21
+Chron.gewrichtsontsteking,Totaal,3.3,3,3.9,4.1,4,3.8,3.7,4,4.1
+Chron.gewrichtsontsteking,tot45,2.9,2.2,3.6,3.4,1.9,2.8,2.9,2.6,2.4
+Chron.gewrichtsontsteking,tot55,4.3,4.5,6.6,5.9,6.4,5.5,5.1,5.9,6.1
+Chron.gewrichtsontsteking,tot65,6.3,5.9,6.8,9.3,7.6,7.1,6.3,6,8
+Chron.gewrichtsontsteking,tot75,9.5,8.2,9.4,10,10.3,9.6,8.2,10.5,8.1
+Chron.gewrichtsontsteking,boven75,11.1,10.5,12,12.5,14.2,12.3,12.8,11.2,11.9
+Rugaandoening,Totaal,8.1,8,8,9.1,9.2,8.8,8.1,8.8,8.7
+Rugaandoening,tot45,9.1,10,9.1,11.4,10.1,9.3,10.4,10.7,9.5
+Rugaandoening,tot55,13.8,13.2,12.3,14.9,14.8,13.6,9.7,13.1,12.9
+Rugaandoening,tot65,13.8,14.5,13.6,15.8,16.1,15.2,14.8,13.6,14.5
+Rugaandoening,tot75,12.8,12.8,11.8,14,14.3,13.7,12,13.8,13.3
+Rugaandoening,boven75,16.1,14.1,17.3,15.5,17.4,15.4,15.2,15.6,20.1
+Nekaandoening,Totaal,8.1,7.8,8.6,8.8,9.2,8.5,8.5,8.1,8.3
+Nekaandoening,tot45,10.1,9.1,10.9,9.5,10.6,8.5,10.6,9.9,8.9
+Nekaandoening,tot55,14,13.3,14,14.5,15.7,14.7,13,13.3,13.6
+Nekaandoening,tot65,12.2,13.4,14.1,15.2,14.9,13.7,14.2,11.9,13.9
+Nekaandoening,tot75,13,13,14.1,13.3,15.6,13.3,11.1,14.8,12
+Nekaandoening,boven75,13.7,12.1,10.1,14.9,14,14.8,14.3,11.2,16.1
+Duizeligheid met vallen,Totaal,2.4,2.4,2.6,2.2,2.6,3,2.2,2.4,2.7
+Duizeligheid met vallen,tot45,2.4,1.5,1.6,1.6,1.9,2.2,1.1,1.4,1.2
+Duizeligheid met vallen,tot55,2.3,3.2,2.8,2,3.6,2.4,2.5,2,2.8
+Duizeligheid met vallen,tot65,2,3.9,3.6,2.7,2.5,3.3,2.5,2.9,3.1
+Duizeligheid met vallen,tot75,3.7,2.1,4.9,3,2.9,4.8,3.6,4.4,2.9
+Duizeligheid met vallen,boven75,11.4,9.7,9.1,8.6,9.7,12,7.8,9.6,11
+Darmstoornissen,Totaal,2.5,2.7,3,2.7,2.7,2.7,2.9,3.2,3.1
+Darmstoornissen,tot45,1.8,3.6,2,2.6,2.3,2.6,3.4,3.4,3.4
+Darmstoornissen,tot55,3.6,3.6,4.4,3.3,3.3,3.1,3,3.2,3.2
+Darmstoornissen,tot65,3.1,2.8,4,3.9,3.6,2.9,3.1,3.2,3.4
+Darmstoornissen,tot75,3.9,2.6,5.5,3.8,3.8,5.1,4.5,3.6,4.4
+Darmstoornissen,boven75,5.4,4.7,5.4,5.6,4.4,4.1,5.7,6.3,6
+Migraine,Totaal,14.2,15,12.5,11.9,12.6,12.1,11.5,11.5,11.4
+Migraine,tot45,21.5,22.5,18.6,18.4,19.4,19.5,17.1,19.6,19.5
+Migraine,tot55,20.6,23.1,17.3,15.7,18.7,16.6,15.8,15.6,15.3
+Migraine,tot65,11.9,13.9,9.9,12.9,11.1,10.4,10.8,11.8,10.8
+Migraine,tot75,9.7,8.7,8.8,7.4,9,8.1,7.2,8.1,6
+Migraine,boven75,8,9.1,8.4,6.6,7.2,6.5,5.1,5.2,6.3

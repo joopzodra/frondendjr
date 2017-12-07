@@ -1,0 +1,22 @@
+extends ../post
+
+block vars
+ - var title = 'Winsten zelfstandige artsen'
+ - var description = 'Interactieve lijngrafiek; staafdiagram met animatie. Over de inkomens van zelfstandig gevestigde medisch specialisten.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/winsten-zelfstandige-artsen.jpg'
+
+block articlecontent
+  .intro
+    p
+    | In 2008 en 2009 groeiden de winsten van sommige vrijgevestigde specialisten explosief. Dat lag aan nieuwe regelgeving. Na 2010 daalden ze door aanvullende maatregelen weer. Ter vergelijking staan ook winsten van huis- en tandartsen in de grafiek. (Overigens geeft het CBS niet van alle specialismen de data. Van medisch-microbiologen stegen winsten zelfs tot acht ton, schreven de kranten, maar van hen ontbreekt CBS-data.)
+  #viz  
+  p
+    | Data: 
+    a(href='http://statline.cbs.nl/StatWeb/publication/?VW=T&DM=SLNL&PA=82005NED&D1=0&D2=a&D3=a&HD=140606-1401&HDR=G2,T&STB=G1') CBS, Winsten van zelfstandige artsen
+
+block footerCss
+  link(href='/apps/winsten-zelfstandige-artsen/winsten-zelfstandige-artsen.css' rel='stylesheet')
+block footerScripts
+  script(src='/js/d3/d3.v4.min.js')
+  script(src='/apps/winsten-zelfstandige-artsen/winsten-zelfstandige-artsen.js')

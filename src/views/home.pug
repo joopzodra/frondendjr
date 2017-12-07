@@ -1,0 +1,90 @@
+extends default
+
+block vars
+  - var title = 'Home'
+  - var description = 'Voorbeelden van Angular, Ionic en D3 coding stuff'
+  
+  if anchor
+    script.
+      window.location.hash = '#{anchor}'
+
+block content
+
+  #intro.w3-container
+    h2.w3-wide.w3-center MIJN ONLINE SCHETSBOEK
+    p.w3-opacity.w3-center
+      i I love coding
+    #intro-inner-container  
+      p#intro-first.w3-justify Ik ben front-end developer met ervaring in HTML, CSS, JavaScript, Angular en Ionic. Ik werk ook met D3 en Qgis voor datavisualisaties, en maak en onderhoud websites in Wordpress.
+      img(src='/img/jr.png')
+      #intro-more
+        p Programmeren heb ik me geleidelijk aan eigen gemaakt, naast mijn werk als tekstschrijver.
+        p Het begon met kleine aanpassingen op websites van mijn klanten in HTML en CSS. En data uit teksten verhelderen in grafieken. Van daaruit groeide mijn belangstelling voor datavisualitaties in JavaScript. Wordpress opende de mogelijkheid om zelf voor klanten websites te bouwen.
+        p Vorig jaar ontdekte ik Angular en Ionic. Ik ben gefascineerd door de mogelijkheden. Ik gebruik de beide platforms in combinatie met TypeScript.
+        p
+          |Ik werk vanuit mijn eigen bureau Zodra als zzp'er. Mijn focus ligt op Angular en Ionic projecten. Dus als je een front-ender wilt inhuren: 
+          a(href='#contact') neem contact op
+          |.
+      button#more-button.w3-button.w3-white.w3-border.w3-border-black Meer &#x25BD;
+
+  #portfolio.w3-theme-d4.w3-container.w3-padding-32
+    h2.w3-wide.w3-center PORTFOLIO
+    .portfolio-container
+      - var postlist = data.postlist
+      each item in postlist
+        .portfolio-category(id=item.key.toLowerCase().replace(/\s/g, ''))
+          h4.portfolio-category-header.w3-wide.w3-center
+            img.w3-margin-right(src='/img/category-img/' + item.key + '.png')
+            = item.key         
+          .portfolio-category-container
+            each post in item.value
+              .portfolio-panel.w3-margin-bottom.w3-white         
+                a(href='/' + post.fileName, class='portfolio-item w3-hover-opacity')
+                  .portfolio-panel-inner-container           
+                    .portfolio-header.w3-container
+                      p.w3-large
+                        b= post.title
+                    .portfolio-image-container 
+                      img.portfolio-image(srcset=post.featuredImg.split('.')[0] + "-300.jpg, " + post.featuredImg.split('.')[0] + "-600.jpg 2x" src=post.featuredImg.split('.')[0] + "-600.jpg" alt='afbeelding '+ post.title)
+                    .portfolio-description.w3-container
+                      p= post.description
+
+  #contact.w3-container.w3-content
+    h2.w3-wide.w3-center CONTACT
+    p.w3-opacity.w3-center
+      i Vragen? Nader kennismaken? Stuur een bericht.
+
+    #form.w3-row
+
+      .w3-col.m6.w3-large.w3-margin-bottom
+        i.fa.fa-map-marker
+        |Nude 60
+        br
+        i.fa
+        |6702 DN Wageningen
+        br
+        i.fa.fa-phone
+        |06 2759 0710
+        br
+        i.fa.fa-envelope 
+        a(href='mailto:joop@zodra.nl') joop@zodra.nl
+
+      .w3-col.m6
+        form(action='/' method='post')
+          .w3-row-padding(style='margin:0 -16px 8px -16px')
+            .w3-half
+              input.w3-input.w3-border(type='text' placeholder='Naam' name='name' required value=(formdata===undefined ? '' : formdata.name))
+            .w3-half
+              input.w3-input.w3-border(type='email' placeholder='E-mail' name='email' required value=(formdata===undefined ? '' : formdata.email))
+              if errors
+                p.w3-text-red.w3-small= errors[0].msg  
+          textarea.w3-input.w3-border(rows='3' placeholder='Je bericht' name='message' required value=(formdata===undefined ? '' : formdata.message))
+          button.w3-button.w3-theme-d3.w3-section.w3-right(type='submit') VERSTUUR
+  
+  #leaflet-map.w3-grayscale-max
+
+block footerCss
+
+block footerScripts
+  script(type='text/javascript' src='/js/home.js')
+  script(type='text/javascript' src='/js/validator.min.js')

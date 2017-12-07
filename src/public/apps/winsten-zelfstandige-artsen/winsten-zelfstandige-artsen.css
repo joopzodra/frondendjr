@@ -1,0 +1,191 @@
+.winsten-zelfstandige-artsen article {
+  max-width: 100%;
+}
+.winsten-zelfstandige-artsen .intro {
+  max-width: 800px;
+}
+
+#viz {
+  max-width: 1400px;
+  margin:  0 auto;
+  display: -webkit-flex;
+  display:  flex;
+  -webkit-flex-flow:  row wrap;
+  flex-flow:  row wrap;
+}
+
+#lines-container, #animation-container {
+  -webkit-flex: 1 1 600px;
+  flex: 1 1 600px;
+  max-width: 700px;
+}
+
+#lines-container {
+  margin: 16px auto;
+}
+
+#animation-container {
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+   #animation-container {
+    margin: 16px auto;
+  } 
+}
+
+#lines-svg-container, #animation-svg-container {
+ position: relative; 
+ height: 0; 
+ width: 100%;
+}
+
+svg {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  left: 0; 
+  top: 0;
+  font-family: 'Lato', Arial,"Trebuchet MS",sans-serif;
+}
+
+.x-axis text, .y-axis text, #slider .ticks text {
+  fill:  #000;
+  font-size: 16px;
+}
+
+@media (min-width: 600px) {
+ .x-axis text, .y-axis text, #slider .ticks text {
+  font-size: 13px;
+} 
+}
+
+/* Lines chart */
+
+#checkboxes-container ul {
+  list-style-type: none;
+  clear: both;
+  overflow: hidden;
+  padding: 0;
+  margin-left: 0px;
+}
+
+#checkboxes-container li {
+  float: left;
+  width: 120px;
+  margin-bottom: 0;
+  margin-left: 4px;
+}
+
+#checkboxes-container label, #select-deselect-all label, #show-hide-numbers label {
+  font-size: 11px;
+  line-height: 2;
+}
+
+#show-hide-numbers {
+  margin-bottom: 16px;
+}
+
+#select-deselect-all input, #show-hide-numbers input {
+  float: left;
+  top: 0 !important;
+}
+
+#select-deselect-all label, #show-hide-numbers label {
+  margin-left: 2px;
+}
+
+.colorbox{
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  margin: 0 3px;
+}
+
+#numbers-container text{
+  font-size: 12px;
+}
+
+#numbers-container.hidden {
+  display: none;
+}
+
+.numbers.visible {
+  visibility: visible;
+}
+.numbers:not(.visible) {
+  visibility: hidden;
+}
+
+
+/* Animation svg */
+#start-button {
+  margin-bottom: 16px;
+}
+
+.w3-button:hover {
+  background-color: #616161 !important;
+  color: #fff !important;
+}
+#animation-select-menu {
+  max-width: 90px;
+  margin: 16px 0;
+}
+
+#bars rect {
+  fill: #005CB3;
+}
+
+circle {
+  fill: #E8DD3F;
+}
+
+#animation-dotted-lines {
+  stroke: #999;
+  stroke-width: 1px;
+  stroke-dasharray:3,3;
+}
+
+#bar-labels {
+  font-size: 9px;
+  fill: #ddd;
+  text-anchor: end;
+}
+
+/* Slider */
+.ticks {
+  font-size: 11px;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+.track-inset {
+  stroke: #ddd;
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: move;
+}
+
+.handle {
+  fill: #ccc;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+}

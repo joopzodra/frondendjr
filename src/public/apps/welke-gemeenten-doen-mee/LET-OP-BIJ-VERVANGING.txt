@@ -1,0 +1,8 @@
+JS
+Paden naar json en csv handmatig aanpassen in app.js
+Ook redirect route voor '**' handmatig aanpassen
+
+CSS
+Deze css verschilt iets van de css die je uit FrontEndDev>AngularProjecten>gemeneenten-dm haalt!!!
+Handmatig is aangepast: geen blauwe achtergrond in body, betere marges bij knoppen en onder legendablok
+Het beste kun je deze css niet vervangen!!!

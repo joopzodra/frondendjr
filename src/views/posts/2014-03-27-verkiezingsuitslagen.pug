@@ -1,0 +1,28 @@
+extends ../post
+
+block vars
+ - var title = 'Verkiezings\u00ADuitslagen'
+ - var description = 'Interactieve kaart met uitslagen gemeente\u00ADraads\u00ADverkiezingen in de vier grote steden.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/verkiezingsuitslagen.jpg'
+
+block articlecontent
+  p
+    | De uitslagen van de gemeenteraadsverkiezingen 2014 in de vier grote steden. Per buurt is het stemgedrag te zien.
+
+  p
+    a(href='/apps/verkiezingsuitslagen') Ga naar de app
+      img(src="img/featured-img/verkiezingsuitslagen-600.jpg" class="article-featured-img")
+
+  h2 Percentages en aantallen
+  p
+    | Je kunt switchen tussen het percentage stemmen en aantal stemmen. Met het percentage kun je de politieke kleur van buurten vergelijken. Met het aantal stemmen zie je welke buurten het meeste gewicht in de schaal leggen in de uitslag van de stad.
+
+  h2 Toelichting
+  p
+    | Buurten waar geen stembureaus waren (bedrijvengebieden, havens, parken enz.) zijn op de kaart wit.
+  p
+    | In Amsterdam, Rotterdam en Den Haag zie je de uitslagen op buurtniveau. Utrecht heeft de uitslagen per wijk gepubliceerd. Houd er wel rekening mee dat kiezers niet per se in hun eigen buurt naar het stembureau hoeven. In Utrecht bijvoorbeeld was de opkomst in het centrum hoger dan elders (75,4% tegen 54,2%) doordat relatief veel kiezers uit andere wijken daar hun stem uitbrachten. En in Amsterdam waren er bijvoorbeeld relatief veel stemmers in Sloterdijk waar veel kantoren zijn en waar op het station een stembureau was.
+  p
+    | Op de kaart van Rotterdam is een deel van het haven- en industriegebied weggesneden om de kaart minder breed te maken. Hoek van Holland en Rozenburg liggen hierdoor los van hun omgeving liggen en zijn oostwaarts opgeschoven.
+  p Als basiskaart is de wijk- en buurtkaart 2013 van CBS/Kadaster gebruikt.

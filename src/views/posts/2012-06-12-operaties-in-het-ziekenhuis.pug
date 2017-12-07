@@ -1,0 +1,14 @@
+extends ../post
+
+block vars
+ - var title = 'Operaties in het ziekenhuis'
+ - var description = 'Bekijk per operatie-soort hoe vaak deze jaarlijks is uitgevoerd.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/operaties.jpg'
+
+block articlecontent
+  p Aantal operaties in de Nederlandse ziekenhuizen in klinische opname en dagopname. Klik op een diagram als je de precieze cijfers in beeld wilt. Bron: CBS. Deze registratie is jammergenoeg na 2010 gestopt.
+  p
+    a(href='/apps/operaties') Ga naar de app
+      img(src="img/featured-img/operaties-600.jpg" class="article-featured-img")
+    

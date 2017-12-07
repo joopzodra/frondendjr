@@ -1,0 +1,36 @@
+extends default
+
+block vars
+  - var title = 'Bericht verstuurd'
+  - var description = ''
+
+block content
+
+  .w3-content(style='margin-top:46px;max-width:6000px;')
+    .w3-row(style='background-image: linear-gradient(to right, #3a4b53 0%, #3a4b53 33.33%, white 33.33%, white 100%);')
+      .w3-col.l8.w3-white(style='float:right;')
+        article.w3-container(style='max-width:800px;')          
+          if formdata
+            h3.w3-padding-16 Je bericht is verstuurd
+            p Je bericht is verstuurd met de volgende gegevens:
+            p 
+              strong Naam:
+              |  #{formdata.name}
+            p
+              strong Email:
+              |  #{formdata.email}
+            p 
+              strong Bericht:
+              |  #{formdata.message}
+            p Bedankt voor je bericht. Je krijgt snel antwoord.
+            a.w3-button.w3-theme-d3.w3-hover-theme(href='/') Terug
+      .w3-col.l4.w3-theme-d4
+        aside.w3-container.w3-padding-32
+          - var postlist = data.postlist
+            ul.categories-list(style='list-style-type:none;')
+              each item in postlist
+                li(style='padding-bottom:20px;')= item.key
+                  ul(style='padding-left:12px;')
+                    each post in item.value  
+                      li
+                        a(href='/' + post.fileName, style='text-decoration:none;')= post.title        

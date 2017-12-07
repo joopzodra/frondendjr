@@ -1,0 +1,2 @@
+webpackJsonp([1],{0:function(n,t,o){"use strict";o(435),o(436)},435:function(n,t,o){n.exports=o.p+"gem-2016.json"},436:function(n,t,o){n.exports=o.p+"gem-2016-data.csv"}});
+//# sourceMappingURL=data.3b4f6afc7e331133e92d.js.map

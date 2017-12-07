@@ -1,0 +1,26 @@
+extends ../post
+
+block base
+  base(href='/2016-07-13-welke-gemeenten-doen-mee')  
+
+block vars
+  - var title = 'Welke gemeenten doen mee?'
+  - var description = 'Angular app om bij te houden welke gemeenten meedoen aan een project.'
+  - var category = 'ANGULAR'
+  - var featuredImg = '/img/featured-img/welke-gemeenten-doen-mee.jpg'
+
+
+block articlecontent
+  .intro
+    p App voor projectmanagement. Hiermee kun je bijhouden welke gemeenten meedoen aan het project.In deze demo worden de data opgeslagen in de browser en blijven bewaard tot je het venster of de tab sluit. In de echte toepassing worden de data op de server opgeslagen.
+    my-app
+    div.loading-spinner
+
+block footerCss
+  link(href='/apps/welke-gemeenten-doen-mee/app.3b4f6afc7e331133e92d.css' rel='stylesheet')
+  link(href='/apps/welke-gemeenten-doen-mee/vendor.3b4f6afc7e331133e92d.css' rel='stylesheet')
+block footerScripts
+  script(src='/apps/welke-gemeenten-doen-mee/polyfills.3b4f6afc7e331133e92d.js')
+  script(src='/apps/welke-gemeenten-doen-mee/vendor.3b4f6afc7e331133e92d.js')
+  script(src='/apps/welke-gemeenten-doen-mee/data.3b4f6afc7e331133e92d.js')
+  script(src='/apps/welke-gemeenten-doen-mee/app.53a914ed3e15b1df33fa.js')

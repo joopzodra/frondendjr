@@ -1,0 +1,27 @@
+extends ../post
+
+block base
+  base(href='/2017-02-14-mijn-uitgaven/')  
+
+block vars
+  - var title = 'MijnUitgaven'
+  - var description = 'Ionic 2 demo: huishoudboekje. Overzicht van maandelijkse uitgaven, geordend in verschillende rubrieken.'
+  - var category = 'IONIC'
+  - var featuredImg = '/img/featured-img/mijn-uitgaven.jpg'
+
+
+block articlecontent
+  .intro
+    p 
+      |Een schets voor een digitaal huishoudboekje.
+    p
+      |Bij een volwaardige app zou je data automatisch vanuit je bankrekening willen laden. Maar bankgegevens krijg je niet zo maar in een willekeurige app geladen. Bij deze app kun je daarom alleen handmatig uitgaven toevoegen. Ook zit er al allerlei voorbeeld-data al in de app geladen.
+    p
+      |In de app kun je afzondelijke uitgavenposten onderbrengen in een rubrieke Je kunt de rubriekeen de beschrijving van de uitgave ook aanpassen.
+    p
+      |Er zijn 18 verschillende rubrieken beschikbaar. Je kunt de rubrieksnamen veranderen via het menu; zo kun je dus je eigen rubrieken bepalen.
+    p
+      a(href='https://github.com/joopzodra/MijnUitgaven') Bekijk de broncode van de app op GitHub.
+    p
+      a(href='https://play.google.com/store/apps/details?id=com.ionicframework.mijnuitgaven371450') Installeer de app vanuit Google Play Store.
+    iframe(src='/iframe-content/mijn-uitgaven')

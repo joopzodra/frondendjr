@@ -1,0 +1,153 @@
+operatie,wijze,aantal_of_per10000,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010
+Alle operatieve verrichtingen,enkel,klinisch aantal,678796,666644,650633,630616,616087,599593,596746,610310,624244,646518,639992,647738,649218,658516,669166,681650
+Alle operatieve verrichtingen,enkel,klinisch per 10000 inw,439.2,429.3,416.8,401.4,389.6,376.4,371.9,377.9,384.8,397.2,392.2,396.3,396.3,400.4,404.8,410.3
+Alle operatieve verrichtingen,enkel,dagopname aantal,367908,389024,401213,427804,441843,453074,483094,524268,562104,603094,616759,637150,663112,698917,710604,732908
+Alle operatieve verrichtingen,enkel,dagopname per 10000 inw,238.0,250.5,257.0,272.3,279.4,284.5,301.1,324.7,346.5,370.5,378.0,389.8,404.8,424.9,429.9,441.1
+Colectomie,laparoscopisch,klinisch aantal,40,37,32,49,63,79,76,99,202,334,800,1117,1317,1398,1875,2466
+Colectomie,laparoscopisch,klinisch per 10000 inw,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.2,0.5,0.7,0.8,0.8,1.1,1.5
+Colectomie,laparoscopisch,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Colectomie,laparoscopisch,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Colectomie,overig,klinisch aantal,10599,11120,11112,11255,11493,11533,11511,11791,12340,12650,12224,12331,12474,12384,11579,11546
+Colectomie,overig,klinisch per 10000 inw,6.9,7.2,7.1,7.2,7.3,7.2,7.2,7.3,7.6,7.8,7.5,7.5,7.6,7.5,7.0,6.9
+Colectomie,overig,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Colectomie,overig,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Appendectomie,laparoscopisch,klinisch aantal,758,745,707,800,974,1039,1307,1630,2070,2550,3279,4304,5015,5972,7194,7588
+Appendectomie,laparoscopisch,klinisch per 10000 inw,0.5,0.5,0.5,0.5,0.6,0.7,0.8,1.0,1.3,1.6,2.0,2.6,3.1,3.6,4.4,4.6
+Appendectomie,laparoscopisch,dagopname aantal,21,17,17,12,0,13,0,11,13,13,14,22,21,22,29,30
+Appendectomie,laparoscopisch,dagopname per 10000 inw,0.0,0.0,0.0,0.0,0,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0
+Appendectomie,overig,klinisch aantal,13825,13940,14185,13955,13935,13938,13642,13267,12889,12340,11787,10941,10026,9454,9103,8074
+Appendectomie,overig,klinisch per 10000 inw,8.9,9.0,9.1,8.9,8.8,8.8,8.5,8.2,7.9,7.6,7.2,6.7,6.1,5.7,5.5,4.9
+Appendectomie,overig,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Appendectomie,overig,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cholecystectomie,laparoscopisch,klinisch aantal,10542,11022,11253,11787,12272,13047,13201,14907,16331,17369,18090,19408,20395,20138,20750,21486
+Cholecystectomie,laparoscopisch,klinisch per 10000 inw,6.8,7.1,7.2,7.5,7.8,8.2,8.2,9.2,10.1,10.7,11.1,11.9,12.5,12.2,12.6,12.9
+Cholecystectomie,laparoscopisch,dagopname aantal,0,38,56,99,158,223,318,303,403,496,643,772,846,1016,1148,1355
+Cholecystectomie,laparoscopisch,dagopname per 10000 inw,0,0.0,0.0,0.1,0.1,0.1,0.2,0.2,0.2,0.3,0.4,0.5,0.5,0.6,0.7,0.8
+Cholecystectomie,overig,klinisch aantal,6317,5910,5743,5240,4851,4501,4371,4264,4051,4070,3704,3277,3280,3145,2850,2362
+Cholecystectomie,overig,klinisch per 10000 inw,4.1,3.8,3.7,3.3,3.1,2.8,2.7,2.6,2.5,2.5,2.3,2.0,2.0,1.9,1.7,1.4
+Cholecystectomie,overig,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cholecystectomie,overig,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Liesbreukoperatie,laparoscopisch,klinisch aantal,0,0,0,0,0,0,762,744,674,583,1538,1598,1469,1353,1404,1436
+Liesbreukoperatie,laparoscopisch,klinisch per 10000 inw,0,0,0,0,0,0,0.5,0.5,0.4,0.4,0.9,1.0,0.9,0.8,0.8,0.9
+Liesbreukoperatie,laparoscopisch,dagopname aantal,0,0,0,0,0,0,440,464,429,450,2164,3080,3667,3845,4337,5054
+Liesbreukoperatie,laparoscopisch,dagopname per 10000 inw,0,0,0,0,0,0,0.3,0.3,0.3,0.3,1.3,1.9,2.2,2.3,2.6,3
+Liesbreukoperatie,overig,klinisch aantal,22568,21639,21310,20473,19353,17995,16294,16317,16272,15650,12267,10212,8745,8071,7200,6259
+Liesbreukoperatie,overig,klinisch per 10000 inw,14.6,13.9,13.6,13.0,12.2,11.3,10.2,10.1,10.0,9.6,7.5,6.2,5.3,4.9,4.4,3.8
+Liesbreukoperatie,overig,dagopname aantal,6265,6515,7200,7634,8286,9315,9722,10889,11574,12521,13331,14018,15184,15098,15120,15574
+Liesbreukoperatie,overig,dagopname per 10000 inw,4.1,4.2,4.6,4.9,5.2,5.8,6.1,6.7,7.1,7.7,8.2,8.6,9.3,9.2,9.1,9.4
+Prostatectomie,transurethraal,klinisch aantal,13870,11996,10655,9699,9457,9093,9000,9376,9822,10528,10645,10040,10075,10420,11291,10693
+Prostatectomie,transurethraal,klinisch per 10000 inw,9.0,7.7,6.8,6.2,6.0,5.7,5.6,5.8,6.1,6.5,6.5,6.1,6.2,6.3,6.8,6.4
+Prostatectomie,transurethraal,dagopname aantal,21,11,15,20,72,108,103,75,92,125,132,62,90,46,87,80
+Prostatectomie,transurethraal,dagopname per 10000 inw,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.0,0.1,0.1,0.1,0.0,0.1,0.0,0.1,0
+Prostatectomie,open,klinisch aantal,2015,1955,1852,1895,2012,1925,1978,2094,2315,2434,2495,2401,2387,2257,2478,2715
+Prostatectomie,open,klinisch per 10000 inw,1.3,1.3,1.2,1.2,1.3,1.2,1.2,1.3,1.4,1.5,1.5,1.5,1.5,1.4,1.5,1.6
+Prostatectomie,open,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Prostatectomie,open,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hysterectomie,laparoscopisch,klinisch aantal,0,0,0,0,0,0,0,0,0,0,272,362,552,803,1087,1686
+Hysterectomie,laparoscopisch,klinisch per 10000 inw,0,0,0,0,0,0,0,0,0,0,0.2,0.2,0.3,0.5,0.7,1
+Hysterectomie,laparoscopisch,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hysterectomie,laparoscopisch,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hysterectomie,overig,klinisch aantal,19607,18877,18005,16674,15976,15601,15486,15717,15804,17203,16455,15174,14903,13648,13363,12761
+Hysterectomie,overig,klinisch per 10000 inw,12.7,12.2,11.5,10.6,10.1,9.8,9.7,9.7,9.7,10.6,10.1,9.3,9.1,8.3,8.1,7.7
+Hysterectomie,overig,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hysterectomie,overig,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Heupvervanging,secundair,klinisch aantal,1735,1587,1547,1684,1692,1647,1651,1758,1833,1928,2062,2260,2107,2183,2240,2430
+Heupvervanging,secundair,klinisch per 10000 inw,1.1,1.0,1.0,1.1,1.1,1.0,1.0,1.1,1.1,1.2,1.3,1.4,1.3,1.3,1.4,1.5
+Heupvervanging,secundair,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Heupvervanging,secundair,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Heupvervanging,overig,klinisch aantal,21207,21865,22746,22561,23523,23900,25235,26771,27745,28253,29136,29276,29954,31264,31840,33339
+Heupvervanging,overig,klinisch per 10000 inw,13.7,14.1,14.6,14.4,14.9,15.0,15.7,16.6,17.1,17.4,17.9,17.9,18.3,19.0,19.3,20.1
+Heupvervanging,overig,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Heupvervanging,overig,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Totale knievervanging,enkel,klinisch aantal,5055,5313,5876,6445,6653,7394,8564,10136,11380,12326,13731,15688,17226,17876,18518,19566
+Totale knievervanging,enkel,klinisch per 10000 inw,3.3,3.4,3.8,4.1,4.2,4.6,5.3,6.3,7.0,7.6,8.4,9.6,10.5,10.9,11.2,11.8
+Totale knievervanging,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Totale knievervanging,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Meniscusverwijdering, arthroscopisch",enkel,klinisch aantal,6149,4934,4112,3183,2697,2434,2268,2494,2350,2395,2069,2118,2198,2084,1872,1667
+"Meniscusverwijdering, arthroscopisch",enkel,klinisch per 10000 inw,4.0,3.2,2.6,2.0,1.7,1.5,1.4,1.5,1.4,1.5,1.3,1.3,1.3,1.3,1.1,1
+"Meniscusverwijdering, arthroscopisch",enkel,dagopname aantal,21274,22478,23548,24240,25916,26137,26811,28957,30793,34026,35151,35996,36347,39017,39326,40049
+"Meniscusverwijdering, arthroscopisch",enkel,dagopname per 10000 inw,13.8,14.5,15.1,15.4,16.4,16.4,16.7,17.9,19.0,20.9,21.5,22.0,22.2,23.7,23.8,24.1
+Excisie / destructie intracran. laesies,enkel,klinisch aantal,2022,2108,2039,2040,2051,2122,1894,1888,1884,1816,1829,1859,1902,2003,2071,2259
+Excisie / destructie intracran. laesies,enkel,klinisch per 10000 inw,1.3,1.4,1.3,1.3,1.3,1.3,1.2,1.2,1.2,1.1,1.1,1.1,1.2,1.2,1.3,1.4
+Excisie / destructie intracran. laesies,enkel,dagopname aantal,389,386,405,340,339,345,306,388,378,454,403,405,464,467,356,433
+Excisie / destructie intracran. laesies,enkel,dagopname per 10000 inw,0.3,0.2,0.3,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.2,0.2,0.3,0.3,0.2,0.3
+Drainage subd. / intracerebr. hematoom,enkel,klinisch aantal,359,302,380,346,312,322,313,316,328,345,354,404,435,412,445,465
+Drainage subd. / intracerebr. hematoom,enkel,klinisch per 10000 inw,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3
+Drainage subd. / intracerebr. hematoom,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Drainage subd. / intracerebr. hematoom,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Discectomie,enkel,klinisch aantal,13179,13261,12412,11996,10653,9843,9454,10000,10304,10797,11501,11991,11482,11427,11462,11109
+Discectomie,enkel,klinisch per 10000 inw,8.5,8.5,8.0,7.6,6.7,6.2,5.9,6.2,6.4,6.6,7.0,7.3,7.0,6.9,6.9,6.7
+Discectomie,enkel,dagopname aantal,53,33,26,28,14,0,0,0,22,68,92,63,111,120,102,18
+Discectomie,enkel,dagopname per 10000 inw,0.0,0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.1,0.0,0.1,0.1,0.1,0
+Thyroidectomie,enkel,klinisch aantal,2286,2094,2064,2140,2124,1945,1990,2117,2289,2211,2435,2659,2640,2591,2583,2572
+Thyroidectomie,enkel,klinisch per 10000 inw,1.5,1.3,1.3,1.4,1.3,1.2,1.2,1.3,1.4,1.4,1.5,1.6,1.6,1.6,1.6,1.5
+Thyroidectomie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,10,0,0,18,0,0,18
+Thyroidectomie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0.0,0,0,0.0,0,0,0
+Staaroperatie,enkel,klinisch aantal,42985,38838,33244,27171,21311,15487,10611,8219,6939,5424,4260,3563,2984,2638,2100,1691
+Staaroperatie,enkel,klinisch per 10000 inw,27.8,25.0,21.3,17.3,13.5,9.7,6.6,5.1,4.3,3.3,2.6,2.2,1.8,1.6,1.3,1
+Staaroperatie,enkel,dagopname aantal,18111,27785,40091,51009,62620,73557,85774,98764,107074,111594,119606,125772,129975,143184,144167,138691
+Staaroperatie,enkel,dagopname per 10000 inw,11.7,17.9,25.7,32.5,39.6,46.2,53.5,61.2,66.0,68.6,73.3,76.9,79.3,87.1,87.2,83.5
+Cochleair implantaat,enkel,klinisch aantal,0,0,0,0,0,91,131,201,261,297,310,340,371,423,407,462
+Cochleair implantaat,enkel,klinisch per 10000 inw,0,0,0,0,0,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.3,0.2,0.3
+Cochleair implantaat,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,15,22,37,34,45
+Cochleair implantaat,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0.0,0.0,0.0,0.0,0
+Tonsillectomie,enkel,klinisch aantal,17863,17117,16664,16190,15667,14846,14680,14596,14926,14942,14393,15756,14013,13606,12763,12727
+Tonsillectomie,enkel,klinisch per 10000 inw,11.6,11.0,10.7,10.3,9.9,9.3,9.1,9.0,9.2,9.2,8.8,9.6,8.6,8.3,7.7,7.7
+Tonsillectomie,enkel,dagopname aantal,31166,30229,28830,29454,25944,24368,24990,26370,28533,27272,25269,29598,28285,25841,27080,27385
+Tonsillectomie,enkel,dagopname per 10000 inw,20.2,19.5,18.5,18.7,16.4,15.3,15.6,16.3,17.6,16.8,15.5,18.1,17.3,15.7,16.4,16.5
+Gehele / gedeeltelijke pneumonectomie,enkel,klinisch aantal,2674,2549,2471,2431,2377,2268,2143,2139,2163,2341,2434,2541,2706,2447,2613,2915
+Gehele / gedeeltelijke pneumonectomie,enkel,klinisch per 10000 inw,1.7,1.6,1.6,1.5,1.5,1.4,1.3,1.3,1.3,1.4,1.5,1.6,1.7,1.5,1.6,1.8
+Gehele / gedeeltelijke pneumonectomie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Gehele / gedeeltelijke pneumonectomie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hartcatheterisatie,enkel,klinisch aantal,28943,30134,30023,28794,28392,26888,26484,28877,30596,33359,32883,31666,32155,31461,30682,32582
+Hartcatheterisatie,enkel,klinisch per 10000 inw,18.7,19.4,19.2,18.3,18.0,16.9,16.5,17.9,18.9,20.5,20.2,19.4,19.6,19.1,18.6,19.6
+Hartcatheterisatie,enkel,dagopname aantal,3787,4251,5082,6120,6401,9059,10053,10362,11389,13953,15395,17050,17853,19572,20490,21582
+Hartcatheterisatie,enkel,dagopname per 10000 inw,2.5,2.7,3.3,3.9,4.0,5.7,6.3,6.4,7.0,8.6,9.4,10.4,10.9,11.9,12.4,13
+PTCA,enkel,klinisch aantal,12857,14004,14182,14271,14647,15645,16072,17226,18156,21688,25572,27239,28533,26988,28011,30769
+PTCA,enkel,klinisch per 10000 inw,7.8,8.5,8.6,8.7,8.9,9.5,10.0,10.7,11.2,13.3,15.7,16.7,17.4,16.4,16.9,18.5
+PTCA,enkel,dagopname aantal,360,356,465,933,987,1632,3452,4431,5937,7238,6385,6612,5951,8756,10117,9286
+PTCA,enkel,dagopname per 10000 inw,0.2,0.2,0.3,0.6,0.6,1.0,2.2,2.7,3.7,4.4,3.9,4.0,3.6,5.3,6.1,5.6
+Coronaire bypassoperatie,enkel,klinisch aantal,9658,10611,10803,10469,9968,9419,8925,8643,8529,9431,9323,9479,9504,9544,9502,9013
+Coronaire bypassoperatie,enkel,klinisch per 10000 inw,6.2,6.8,6.9,6.7,6.3,5.9,5.6,5.4,5.3,5.8,5.7,5.8,5.8,5.8,5.7,5.4
+Coronaire bypassoperatie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Coronaire bypassoperatie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Herstel infrarenaal aneurysma aorta,enkel,klinisch aantal,1480,1261,1307,1299,1252,1211,1193,1145,1123,1119,1309,1315,1268,1345,2638,2719
+Herstel infrarenaal aneurysma aorta,enkel,klinisch per 10000 inw,1.0,0.8,0.8,0.8,0.8,0.8,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,1.6,1.6
+Herstel infrarenaal aneurysma aorta,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Herstel infrarenaal aneurysma aorta,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pacemaker,enkel,klinisch aantal,5246,5321,5606,5526,5621,6091,6538,6900,7131,7596,7510,7908,8702,8697,8648,9157
+Pacemaker,enkel,klinisch per 10000 inw,3.4,3.4,3.6,3.5,3.6,3.8,4.1,4.3,4.4,4.7,4.6,4.8,5.3,5.3,5.2,5.5
+Pacemaker,enkel,dagopname aantal,72,127,141,165,220,465,539,565,612,691,918,998,1409,1395,1684,1569
+Pacemaker,enkel,dagopname per 10000 inw,0.0,0.1,0.1,0.1,0.1,0.3,0.3,0.3,0.4,0.4,0.6,0.6,0.9,0.8,1.0,0.9
+Femoropoplitale bypassoperatie,enkel,klinisch aantal,2585,2401,2370,2178,2015,1928,1842,1918,1943,1895,1901,1974,1973,1873,1975,1952
+Femoropoplitale bypassoperatie,enkel,klinisch per 10000 inw,1.7,1.5,1.5,1.4,1.3,1.2,1.1,1.2,1.2,1.2,1.2,1.2,1.2,1.1,1.2,1.2
+Femoropoplitale bypassoperatie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Femoropoplitale bypassoperatie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Endarteriëctomie halsslagader,enkel,klinisch aantal,1290,1283,1280,1198,1127,1080,1119,1081,1265,1423,1478,1489,1478,1507,1730,1667
+Endarteriëctomie halsslagader,enkel,klinisch per 10000 inw,0.8,0.8,0.8,0.8,0.7,0.7,0.7,0.7,0.8,0.9,0.9,0.9,0.9,0.9,1.0,1
+Endarteriëctomie halsslagader,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Endarteriëctomie halsslagader,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Niertransplantatie,enkel,klinisch aantal,0,0,0,0,471,534,527,566,601,663,682,656,812,760,800,862
+Niertransplantatie,enkel,klinisch per 10000 inw,0,0,0,0,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5
+Niertransplantatie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Niertransplantatie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Beenmergtransplantatie,enkel,klinisch aantal,0,0,0,0,280,280,369,395,462,574,569,578,601,598,607,641
+Beenmergtransplantatie,enkel,klinisch per 10000 inw,0,0,0,0,0.2,0.2,0.2,0.2,0.3,0.4,0.3,0.4,0.4,0.4,0.4,0.4
+Beenmergtransplantatie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Beenmergtransplantatie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Keizersnede,enkel,klinisch aantal,18338,19025,19960,22009,22689,24484,27570,27252,27027,26393,25427,25409,25160,26324,27353,28644
+Keizersnede,enkel,klinisch per 10000 inw,11.9,12.3,12.8,14.0,14.3,15.4,17.2,16.9,16.7,16.2,15.6,15.5,15.4,16.0,16.5,17.2
+Keizersnede,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Keizersnede,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Totale mastectomie,enkel,klinisch aantal,6371,6564,6247,6779,7070,6982,7124,7215,6842,7056,6715,7115,7110,7410,7852,7475
+Totale mastectomie,enkel,klinisch per 10000 inw,4.1,4.2,4.0,4.3,4.5,4.4,4.4,4.5,4.2,4.3,4.1,4.4,4.3,4.5,4.8,4.5
+Totale mastectomie,enkel,dagopname aantal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Totale mastectomie,enkel,dagopname per 10000 inw,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Partiële excisie van borst,enkel,klinisch aantal,10309,9934,9500,9930,10129,9838,9740,9497,9462,9642,8740,8825,8929,8310,7825,7811
+Partiële excisie van borst,enkel,klinisch per 10000 inw,6.7,6.4,6.1,6.3,6.4,6.2,6.1,5.9,5.8,5.9,5.4,5.4,5.5,5.1,4.7,4.7
+Partiële excisie van borst,enkel,dagopname aantal,5045,5115,4943,5784,6497,6997,7167,6762,6330,5999,5739,5531,6518,5573,5752,5744
+Partiële excisie van borst,enkel,dagopname per 10000 inw,3.3,3.3,3.2,3.7,4.1,4.4,4.5,4.2,3.9,3.7,3.5,3.4,4.0,3.4,3.5,3.5
+"Occlusie, excisie of strippen spataderen",enkel,klinisch aantal,10559,10128,9994,9342,8330,7240,6094,6616,7298,7120,5392,3789,2707,2268,1755,1322
+"Occlusie, excisie of strippen spataderen",enkel,klinisch per 10000 inw,6.8,6.5,6.4,5.9,5.3,4.5,3.8,4.1,4.5,4.4,3.3,2.3,1.7,1.4,1.1,0.8
+"Occlusie, excisie of strippen spataderen",enkel,dagopname aantal,7669,8562,9380,10095,11085,12112,12385,14661,16091,16768,18689,19269,20509,22405,22384,20887
+"Occlusie, excisie of strippen spataderen",enkel,dagopname per 10000 inw,5.0,5.5,6.0,6.4,7.0,7.6,7.7,9.1,9.9,10.3,11.5,11.8,12.5,13.6,13.5,12.6

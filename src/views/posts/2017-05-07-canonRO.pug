@@ -1,0 +1,27 @@
+extends ../post
+
+block base
+  base(href='/2017-005-07-canonRO/')  
+
+block vars
+  - var title = 'CanonRO'
+  - var description = 'Ionic app: canon van de geschiedenis van de ruimtelijke ordening.'
+  - var category = 'IONIC'
+  - var featuredImg = '/img/featured-img/canonRO.jpg'
+
+
+block articlecontent
+  .intro
+    p 
+      |De CanonRO is een canon van de geschiedenis van de ruimtelijke ordening. Het laat zien welke projecten, personen en plannen typerend zijn voor de inrichting van Nederland.
+
+    p
+      |Deze app bevat een-op-een de tekst en afbeeldingen van de 'Canon van de ruimtelijke ordering (CanonRO)'. Deze is in 2012 als boek uitgegeven door het Ministerie van Infrastructuur en Milieu. Je kunt het nog steeds downloaden als pdf op https://www.rijksoverheid.nl/documenten/rapporten/2013/10/28/35-iconen-van-ruimtelijke-ordening-in-nederland.
+    p
+      |De app is gemaakt omdat de pdf van het boek niet handig te bekijken is op een telefoon. Deze app is uiteraard juist wel geschikt om op een telefoon te bekijken.
+
+    p
+      a(href='https://github.com/joopzodra/canonRO') Bekijk de broncode van de app op GitHub.
+    p
+      a(href='https://play.google.com/store/apps/details?id=com.ionicframework.canonro727559') Installeer de app vanuit Google Play Store.
+    iframe(src='/iframe-content/canonRO')

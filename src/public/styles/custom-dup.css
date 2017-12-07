@@ -1,0 +1,125 @@
+@media (min-width:993px) {
+  aside {
+    min-height: 100vh;
+    float:  right;
+    padding-right: 30px !important;
+  }
+}
+
+@media (max-width:350px) {
+  ul.categories-list {
+    padding-left: 10px;
+  }
+}
+
+.home-featured-img {
+  width:80px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.home-postpanel-header p {
+  margin: 10px 0;
+}
+.home-postpanel-image {
+  float: left;
+  padding: 0.01em 16px 10px;
+}
+.home-postpanel-text::before {
+  clear: none;
+}
+.home-postpanel-text p {
+  margin-top: 0;
+}
+
+@media (min-width:601px) {
+
+  .home-postpanel-image {
+    float: none;
+    padding: 0.01em 16px 10px;
+  }
+
+  .home-featured-img {
+    width: 100%;
+    max-width:200px;
+    margin:0 auto;
+    display:block;
+  }
+}
+/*.home-postpanel {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+ .home-postpanel-image {
+  -webkit-flex: 1 1 80px;
+  flex: 1 1 80px;
+  -webkit-align-self: center;
+  align-self: center;
+  -webkit-order: 2;
+  order:  2;
+}
+
+.home-postpanel-header {
+  -webkit-flex: 1 1 100%;
+  flex: 1 1 100%;
+  -webkit-order: 1;
+  order:  1;
+}
+
+.home-postpanel-text {
+  -webkit-flex: 1 1 100%;
+  flex: 1 1 100%;
+  -webkit-order: 3;
+  order:  3;
+  } */
+
+  article {
+    max-width: 800px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 900px;
+    border: 2px solid lightgrey;
+    border-radius: 4px;
+    margin-top: 30px;
+  }
+
+  .article-featured-img {
+    max-width:100%;
+    margin-top:30px;
+    display:block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+/*
+/* Spinner
+*/
+
+.loading-spinner {
+  margin: 60px auto;
+  opacity: 0;
+  transition: opacity .8s ease-in-out;
+  height: 50px;
+  width: 50px;
+  z-index: -1;
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid $softgrey;
+  border-right-color: $light-gray;
+  border-radius: 50%;
+}
+
+/* .loading screen is visible when app is not bootstraped yet, .my-app is empty */
+root:empty + .loading-spinner, my-app:empty + .loading-spinner {
+  opacity: 1;
+  z-index: 100;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}

@@ -1,0 +1,21 @@
+extends ../post
+
+block vars
+ - var title = 'Uiterwaarden'
+ - var description = 'Interactieve kaart met waterhoogten in de uiterwaarden.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/uiterwaarden.jpg'
+
+block articlecontent
+  .intro
+    p Bij extreem hoog water lopen de uiterwaarden langs de grote rivieren onder. De kaart laat voor het gebied ten oosten en noordoosten van Tiel zien hoe enorm breed de rivieren dan worden.
+  #dataviz
+    #zoombutton
+    #hooglaagbuttons
+
+block footerCss
+  link(href='/apps/uiterwaarden/uiterwaarden.css' rel='stylesheet')
+block footerScripts
+  script(src='/js/d3/topojson.min.js')
+  script(src='/js/d3/d3.v3.min.js')
+  script(src='/apps/uiterwaarden/uiterwaarden.js')

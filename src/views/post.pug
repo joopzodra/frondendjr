@@ -1,0 +1,21 @@
+extends default
+
+block content
+
+  .w3-content(style='margin-top:46px;max-width:6000px;')
+    .w3-row(style='background-image: linear-gradient(to right, #3a4b53 0%, #3a4b53 25%, white 25%, white 100%);')
+      .w3-col.l9.w3-white(style='float:right;')
+        article.w3-container.w3-margin
+          h1.w3-padding-16= title
+          block articlecontent
+          p(style='margin-bottom:40px')          
+      .w3-col.l3.w3-theme-d4
+        aside.w3-container.w3-padding-32
+          - var postlist = data.postlist
+            ul.categories-list(style='list-style-type:none;')
+              each item in postlist
+                li(style='padding-bottom:20px;')= item.key
+                  ul(style='padding-left:12px;')
+                    each post in item.value  
+                      li
+                        a(href='/' + post.fileName, style='text-decoration:none;')= post.title        

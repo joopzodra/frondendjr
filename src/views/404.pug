@@ -1,0 +1,24 @@
+extends default
+
+block vars
+  - var title = 'Niet gevonden'
+  - var description = 'Pagina niet gevonden'
+
+
+block content
+  .post-container
+    article
+      header.post-header
+        h1.post-title= title
+      block articlecontent
+        p De pagina die u zoekt is, niet gevonden.
+
+    aside.sidebar
+      - var postlist = data.postlist
+      ul
+        each item in postlist
+          li= item.key
+            ul
+              each post in item.value  
+                li
+                  a(href='/' + post.fileName)= post.title

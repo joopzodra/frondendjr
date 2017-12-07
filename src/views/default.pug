@@ -1,0 +1,16 @@
+doctype html
+html
+  block vars
+    - var title = ''
+    - var description = 'Front-end ontwikkelaar Joop Rosier'
+  include head
+
+  body(class = title.toLowerCase().trim().replace(/ /g, '-'))
+
+    include header
+
+    .page-content
+      block content
+
+    include footer
+    

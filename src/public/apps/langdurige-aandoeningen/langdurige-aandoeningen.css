@@ -1,0 +1,133 @@
+body {
+  font-family: 'Lato', sans-serif;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* HEADER */
+header {
+  background-color: #9ACC46;
+  position: fixed;
+  width: 100%;
+  top:  0;
+  height: 60px;
+}
+.title-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.back {
+  text-decoration: none;
+}
+h1 {
+  font-weight: 300;
+  font-size:  18px;
+  text-align: center;
+  -webkit-flex: 1 1 275px;
+  flex: 1 1 275px;
+  margin-left: 20px;
+  line-height: normal;
+}
+.title-container p {
+  -webkit-flex: 1 1 85px;
+  flex: 1 1 85px;
+  border: 1px solid rgba(0,0,0,0.3);
+  padding: 4px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  font-size: 0.8em;
+  color: #fff;
+}
+@media (min-width: 474px) {
+  h1 {
+    font-size: 28px;
+  } 
+  .title-container p {
+    font-size: 1em;
+  }
+}
+
+/* APP */
+#viz {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+svg {
+	font-size: 10px;
+	font-family: 'Lato', Arial,"Trebuchet MS",sans-serif;
+  display: block;
+}
+/* display: block because:
+Since an <svg> is an inline element by default, its height is calculated differently as related to the default line-height value.
+On inline elements, the line-height CSS property specifies the height that is used in the calculation of the line box height.
+On block level elements, line-height specifies the minimal height of line boxes within the element. */
+
+.textrect {
+	fill:#9ACC46;
+}
+
+.headtext{
+	font-weight:700;
+  font-size: 12px;
+  letter-spacing: 0.015em;
+}
+.axis line, .axis path {
+  stroke-width:1px;
+  shape-rendering: crispEdges;
+  fill: none;
+  stroke: #000;
+}
+
+.lines path {
+  fill:none;
+  stroke-width:2px;
+}
+.numbers {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+#charts {
+  text-align: center;
+}
+.chart {
+  display: inline-block;
+}
+.chart:nth-child(2){
+  margin-top: -80px;
+}
+.hidden {
+  display: none;
+}
+
+#buttons {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  padding: 16px 0;
+  background-color: #fff;
+}
+.w3-button {
+  margin: 0 5px 5px 0;
+  padding: 8px;
+}
+
+@media (min-width:900px) {
+  #charts {
+    padding-top:  50px;
+  }
+  .chart:nth-child(2){
+    margin-top: 0px;
+  }
+  .chart {
+    float: left;    
+  } 
+}

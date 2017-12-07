@@ -1,0 +1,24 @@
+extends ../post
+
+block vars
+ - var title = 'Koeien, varkens, kippen'
+ - var description = 'Interactief staafdiagram met hoeveelheden dieren in de agrarische sector in een aantal EU-landen.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/koeien-varkens-kippen.jpg'
+
+block articlecontent
+  .intro
+    p Nederland is niet alleen dichtbevolkt met mensen, maar ook met kippen, varkens en koeien. De grafiek vergelijkt ons land met enkele andere EU-landen.
+  #viz
+
+  .intro
+    h2 Toelichting
+    p Ons land heeft zo veel kippen dat het staafdiagram daarvoor in tweeën gedeeld is, vanwege de hoogte van de grafiek.
+    p (In de grote landen is veel regionale variatie. Dat is in deze grafieken niet zichtbaar. Zo komen de dierenaantallen in Noordrijn-Westfalen en die in Nederland dichtbij elkaar in de buurt.) 
+    p De data komt van het CBS en vergelijkbare nationale bureaus voor statistiek.
+
+block footerCss
+  link(href='/apps/koeien-varkens-kippen/koeien-varkens-kippen.css' rel='stylesheet')
+block footerScripts
+  script(src='/js/d3/d3.v4.min.js')
+  script(src='/apps/koeien-varkens-kippen/koeien-varkens-kippen.js')

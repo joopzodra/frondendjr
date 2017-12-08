@@ -131,8 +131,11 @@ button {
     padding-bottom: 32px;
   }
   #leaflet-map {
-    height:400px;
     display: block;
+  }
+  #leaflet-inner-container {
+    height:400px;
+    margin: 0 16px;
   }
 }
 @media (min-width: 664px) {
@@ -149,6 +152,9 @@ button {
   .portfolio-container {
     width: 1264px;
   } 
+  #leaflet-inner-container {
+    margin: 0;
+  }
 }   
 @media (min-width: 1612px) {
   .portfolio-container {

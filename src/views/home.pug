@@ -45,7 +45,7 @@ block content
                       p.w3-large
                         b= post.title
                     .portfolio-image-container 
-                      img.portfolio-image(srcset=post.featuredImg.split('.')[0] + "-300.jpg, " + post.featuredImg.split('.')[0] + "-600.jpg 2x" src=post.featuredImg.split('.')[0] + "-600.jpg" alt='afbeelding '+ post.title)
+                      img.portfolio-image(src=post.featuredImg alt='afbeelding '+ post.title)
                     .portfolio-description.w3-container
                       p= post.description
 
@@ -64,7 +64,8 @@ block content
         br
         |6702 DN Wageningen
 
-  #leaflet-map.w3-grayscale-max
+  #leaflet-map
+    #leaflet-inner-container.w3-grayscale-max
 
 block footerCss
 

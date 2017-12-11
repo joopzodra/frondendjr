@@ -9,7 +9,7 @@ const postlist = require('./views/posts/postlist');
 const goodReadsRouter = require('./routes/goodreads-router');
 const iframeContentPath = path.resolve(__dirname, 'public/apps');
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', 8000);
 app.set('view engine', 'pug');
 app.set('views', path.resolve(__dirname, 'views'));
 
@@ -71,6 +71,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(app.get('port'), () => {
+  console.log('listening at port ', app.get('port'));
 });
 
 module.exports = app;

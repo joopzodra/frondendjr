@@ -2,15 +2,18 @@ extends ../post
 
 block vars
  - var title = 'Langdurige aandoeningen'
- - var description = 'Reeksen lijngrafieken over de meest voorkomende chronische aandoeningen.'
+ - var description = 'Cijfers over de meest voorkomende chronische aandoeningen in beeld.'
  - var category = 'D3'
  - var featuredImg = '/img/featured-img/langdurige-aandoeningen-200.jpg'
 
 block articlecontent
-  p CBS-data uit gezondheidsenquêtes. (Na 2010 verzamelt het CBS andere data over aandoeningen, niet meer vergelijkbaar met de data 2001-2009.)
+  p CBS-data uit gezondheidsenquêtes. Je ziet van 14 veel voorkomende chronische aandoeningen in hoe vaak ze voorkomen.
+  
+  p.go-to-app-button-par
+    a(href='/apps/langdurige-aandoeningen' class='w3-button w3-theme go-to-app-button') Ga naar de app
+  p   
+    img(src="img/featured-img/langdurige-aandoeningen-600.jpg" class="article-featured-img")
 
-  p Wil je de exacte cijfers zien? Ga met de muis over de grafieken.
+  p Wil je de exacte cijfers zien? Ga met de muis over de grafieken of tik er met je vinger op.
 
-  p
-    a(href='/apps/langdurige-aandoeningen') Ga naar de app
-      img(src="img/featured-img/langdurige-aandoeningen-600.jpg" class="article-featured-img")
+  p Vanaf 2010 verzamelt het CBS andere data over chronisch aandoeningen. Deze data is niet vergelijkbaar met de data van 2001-2009. Er is nu pas een paar jaar beschikbaar. Zodra er nieuwe data over een flink aantal jaren is, actualiseer ik de app.

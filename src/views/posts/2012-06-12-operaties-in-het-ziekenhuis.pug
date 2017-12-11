@@ -2,13 +2,18 @@ extends ../post
 
 block vars
  - var title = 'Operaties in het ziekenhuis'
- - var description = 'Bekijk per operatie-soort hoe vaak deze jaarlijks is uitgevoerd.'
+ - var description = 'Bekijk per operatie hoe vaak deze jaarlijks is uitgevoerd.'
  - var category = 'D3'
  - var featuredImg = '/img/featured-img/operaties-200.jpg'
 
 block articlecontent
-  p Aantal operaties in de Nederlandse ziekenhuizen in klinische opname en dagopname. Klik op een diagram als je de precieze cijfers in beeld wilt. Bron: CBS. Deze registratie is jammergenoeg na 2010 gestopt.
+  p Cijfers over 30 veel uitgevoerde operaties in de Nederlandse ziekenhuizen in de periode 1996-2010 in één oogopslag.
+  p.go-to-app-button-par
+    a(href='/apps/operaties' class='w3-button w3-theme go-to-app-button') Ga naar de app
   p
-    a(href='/apps/operaties') Ga naar de app
-      img(src="img/featured-img/operaties-600.jpg" class="article-featured-img")
+   img(src="img/featured-img/operaties-600.jpg" class="article-featured-img")
+  h2 Info
+  p Klik in de app op een diagram als je de precieze cijfers in beeld wilt.
+  p Zorgdata loopt altijd een paar jaar achter. Maar deze data is nu wel echt achterop geraakt. De registratie van deze data na 2010 gestopt. Bron: CBS.
+  p De zorgverzekeraars hebben actuelere data maar die is heel anders geordend. Het verzamelen en geschikt maken van die data is een flinke klus, waaraan ik nog niet ben toegekomen.
     

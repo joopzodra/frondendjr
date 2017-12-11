@@ -249,10 +249,10 @@ function viz() {
     table.append('tr')
         .attr('class', 'w3-light-grey')
         .selectAll('th')
-        .data(['', 'aantal stemmen', 'per&shy;centage'])
+        .data(['', 'aantal stemmen', 'percentage'])
         .enter()
         .append('th')
-        .html(function (d) { return d; });
+        .text(function (d) { return d; });
     /////////////////////////Get and process data //////////////////////
     // Get the data and call that.processData and that.drawCity
     that.getData = function (city) {
@@ -309,6 +309,7 @@ function viz() {
                 perc: d3.max(partiesPercentages[party])
             };
         });
+        //return an object with the processing results which can be used in unit test
         return {
             cityParties: cityParties,
             totalCityVotes: totalCityVotes,
@@ -412,4 +413,5 @@ function viz() {
     };
     return that;
 }
+// Uncomment these lines when using js scriptfile
 viz().getData('amsterdam'); 

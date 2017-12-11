@@ -388,7 +388,7 @@ function viz() {
     };
     ///////////////////////// Get and process data //////////////////////
     that.getData = function () {
-        d3.csv('apps/winsten-zelfstandige-artsen/winsten-zelfstandige-artsen.csv', function (error, csv) {
+        d3.csv('winsten-zelfstandige-artsen.csv', function (error, csv) {
             var years = d3.keys(csv[0]).filter(function (key) { return key !== 'Specialisme'; });
             //line svg
             that.appendCheckboxes(csv);

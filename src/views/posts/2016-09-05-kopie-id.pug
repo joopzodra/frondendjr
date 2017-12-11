@@ -5,7 +5,7 @@ block base
 
 block vars
   - var title = 'KopieID voor desktop'
-  - var description = 'Gebaseerd op de KopieID-app van de Rijksoverheid. Met deze variant maak je op desktop een kopie van je paspoort met afgeschermd burgerservicenummer.'
+  - var description = 'Gebaseerd op de KopieID-app van de Rijksoverheid. Met deze variant maak je ook op je desktop een kopie van je paspoort met afgeschermd burgerservicenummer.'
   - var category = 'ANGULAR'
   - var featuredImg = '/img/featured-img/kopieID-200.jpg'
 
@@ -13,18 +13,15 @@ block vars
 block articlecontent
   .intro
     p 
-      |De Rijksoverheid heeft een handige app voor de smartphone waarmee je een kopie van je paspoort of ID maakt met afgeschermd burgerservicenummer (
+      |De Rijksoverheid heeft een handige app voor je mobiel waarmee je een kopie van je paspoort of ID maakt met afgeschermd burgerservicenummer (
       a(href='https://play.google.com/store/apps/details?id=com.milvum.kopieid') KopieID GooglePlay, 
       a(href='https://itunes.apple.com/us/app/kopieid/id932970330?mt=8') KopieID iTunes
-      |). Maar voor desktop bestaat er niet zoiets. Met de app hieronder kun je van een afbeelding of pdf van je paspoort die op je desktop hebt, het burgerservicenummer afschermen. Ook kun je tekst in een watermerk toevoegen waarin je zet voor wie de kopie bestemd is.
-    p
-      a(href='https://github.com/joopzodra/kopieID') Bekijk de broncode van de app op GitHub.
-    p
-      |NB. Deze app is bedoeld voor desktop en heeft dus geen responsive design voor smartphone of tablet.
-    root
-    div.loading-spinner
+      |). Maar voor desktop bestaat er niet zoiets. Met de app hieronder kun je op een afbeelding van je paspoort die op je desktop of mobiel hebt, het burgerservicenummer afschermen. Het watermerk kun je aanpassen.
 
+  p.go-to-app-button-par
+    a(href='/apps/kopieID' class='w3-button w3-theme go-to-app-button') Ga naar de app
   p
-    a(href='/apps/kopieID') Ga naar de app
-      img(src="img/featured-img/kopieID-600.jpg" class="article-featured-img")
+   img(src="img/featured-img/kopieID-600.jpg" class="article-featured-img")
+  p
+    a(href='https://github.com/joopzodra/kopieID') Bekijk de broncode van de app op GitHub.
 

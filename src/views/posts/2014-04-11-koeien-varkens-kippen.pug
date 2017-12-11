@@ -1,8 +1,11 @@
 extends ../post
 
+block base
+  base(href='/apps/koeien-varkens-kippen/')
+
 block vars
  - var title = 'Koeien, varkens, kippen'
- - var description = 'Interactief staafdiagram met hoeveelheden dieren in de agrarische sector in een aantal EU-landen.'
+ - var description = 'Diagram laat zien hoeveel dieren er zijn in de agrarische sector in een aantal EU-landen.'
  - var category = 'D3'
  - var featuredImg = '/img/featured-img/koeien-varkens-kippen-200.jpg'
 
@@ -18,7 +21,7 @@ block articlecontent
     p De data komt van het CBS en vergelijkbare nationale bureaus voor statistiek.
 
 block footerCss
-  link(href='/apps/koeien-varkens-kippen/koeien-varkens-kippen.css' rel='stylesheet')
+  link(href='/apps/koeien-varkens-kippen/koeien-varkens-kippen.min.css' rel='stylesheet')
 block footerScripts
   script(src='/js/d3/d3.v4.min.js')
-  script(src='/apps/koeien-varkens-kippen/koeien-varkens-kippen.js')
+  script(src='/apps/koeien-varkens-kippen/koeien-varkens-kippen.min.js')

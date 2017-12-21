@@ -35,7 +35,6 @@
   introMore.style.display = 'none';
 
   function toggleMore() {
-    console.log(introMore.style.display)
     moreButton.innerHTML = moreButton.innerHTML === 'Meer \u25BD' ? '\u25B3 Minder' : 'Meer \u25BD';
     if (introMore.style.display === 'none') {
       animateToggle(introMore, 1);

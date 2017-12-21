@@ -5,24 +5,26 @@ block base
 
 block vars
   - var title = 'Welke gemeenten doen mee?'
-  - var description = 'Angular app om bij te houden welke gemeenten meedoen aan een project.'
+  - var description = 'App om bij te houden welke gemeenten meedoen aan een project.'
   - var category = 'ANGULAR'
   - var featuredImg = '/img/featured-img/welke-gemeenten-doen-mee-200.jpg'
 
 
 block articlecontent
   .intro
-    p App voor projectmanagement. Hiermee kun je bijhouden welke gemeenten meedoen aan het project.In deze demo worden de data opgeslagen in de browser en blijven bewaard tot je het venster of de tab sluit. In de echte toepassing worden de data op de server opgeslagen.
-    my-app
-    div.loading-spinner
+    p App voor projectmanagement. Hiermee kun je bijhouden welke gemeenten meedoen aan het project. 
+
+  p.go-to-app-button-par
+    a(href='/apps/welke-gemeenten-doen-mee' class='w3-button w3-theme go-to-app-button') Ga naar de app
 
   p
-    a(href='/apps/welke-gemeenten-doen-mee/dist' class='w3-button w3-theme go-to-app-button') Ga naar nieuwe app
+    img(src="img/featured-img/welke-gemeenten-doen-mee-600.jpg" class="article-featured-img")
+
+  h2 Info
+  p
+    | In deze demo worden de data opgeslagen in de browser. Je kunt de data downloaden als csv-bestand, om te gebruiken in Excel. (Downloaden kan op pc, niet op mobiel apparaat.) In de echte toepassing kan de data op de server worden opgeslagen.
+
 block footerCss
-  link(href='/apps/welke-gemeenten-doen-mee/app.3b4f6afc7e331133e92d.css' rel='stylesheet')
-  link(href='/apps/welke-gemeenten-doen-mee/vendor.3b4f6afc7e331133e92d.css' rel='stylesheet')
+
 block footerScripts
-  script(src='/apps/welke-gemeenten-doen-mee/polyfills.3b4f6afc7e331133e92d.js')
-  script(src='/apps/welke-gemeenten-doen-mee/vendor.3b4f6afc7e331133e92d.js')
-  script(src='/apps/welke-gemeenten-doen-mee/data.3b4f6afc7e331133e92d.js')
-  script(src='/apps/welke-gemeenten-doen-mee/app.53a914ed3e15b1df33fa.js')
+

@@ -20,6 +20,9 @@ button {
 }
 #more-button {
   float: right;
+  &:hover {
+    background-color: #fff !important;
+  }
 }
 .portfolio-category-header img {
   vertical-align:middle;

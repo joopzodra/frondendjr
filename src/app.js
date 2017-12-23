@@ -4,6 +4,7 @@ const path = require('path');
 const pug = require('pug');
 const helmet = require('helmet');
 const favicon = require('serve-favicon');
+const fs = require('fs');
 
 const postlist = require('./views/posts/postlist');
 const goodReadsRouter = require('./routes/goodreads-router');

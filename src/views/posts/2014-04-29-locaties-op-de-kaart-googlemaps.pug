@@ -1,0 +1,26 @@
+extends ../post
+
+block base
+  base(href='/apps/locaties-op-de-kaart-googlemaps/')
+
+block viewport
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+
+block otherHeadStuff
+  style header {z-index: 1500 !important;}
+
+block vars
+ - var title = 'Locaties op de kaart (2)'
+ - var description = 'Waar is er een supermarkt, een bakker, een toko? Je ziet het op een interactieve kaart. Gemaakt met Google Maps.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/locaties-op-de-kaart-googlemaps-200.jpg'
+
+block articlecontent
+  p   Waar vind je een supermarkt, een bakker, een toko? Als  tijdens onze vakantie vrienden in ons huis logeren, vinden ze het allemaal op onze interactieve kaart van Wageningen. Dit is de Google Maps versie.
+  #viz
+
+block footerCss
+  link(href='locaties-op-de-kaart-googlemaps.min.css' rel='stylesheet')
+block footerScripts
+  script(type='text/javascript' src='locaties-op-de-kaart-googlemaps.min.js')
+  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk4Sr8DjsEUoniIWsBN66LzMcFl5TvVzk&callback=initMap&v=3")

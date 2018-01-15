@@ -2,7 +2,9 @@ head
   block base
     base(href='/')
   meta(charset='utf-8')
-  meta(name='viewport', content='width=device-width, initial-scale=1')
+  block viewport
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  block internalStylesheet
 
   title #{title} – FrontendJR.nl
   meta(name='description', content= description)

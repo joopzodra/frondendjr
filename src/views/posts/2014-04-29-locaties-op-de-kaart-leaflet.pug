@@ -1,0 +1,27 @@
+extends ../post
+
+block base
+  base(href='/apps/locaties-op-de-kaart-leaflet/')
+
+block viewport
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+
+block internalStylesheet
+  style header {z-index: 1500 !important;}
+
+block vars
+ - var title = 'Locaties op de kaart'
+ - var description = 'Waar is er een supermarkt, een bakker, een toko? Je ziet het op een interactieve kaart. Gemaakt met Leaflet en NLMaps.'
+ - var category = 'D3'
+ - var featuredImg = '/img/featured-img/locaties-op-de-kaart-leaflet-200.jpg'
+
+block articlecontent
+  p   Waar vind je een supermarkt, een bakker, een toko? Als  tijdens onze vakantie vrienden in ons huis logeren, vinden ze het allemaal op onze interactieve kaart van Wageningen.
+  #viz
+
+block footerCss
+  link(href='/styles/vendor-css/leaflet-1.2.0/leaflet.css' rel='stylesheet')
+  link(href='locaties-op-de-kaart-leaflet.min.css' rel='stylesheet')
+block footerScripts
+  script(type='text/javascript' src='/js/leaflet/leaflet-1.2.0/leaflet.js')
+  script(type='text/javascript' src='locaties-op-de-kaart-leaflet.min.js')

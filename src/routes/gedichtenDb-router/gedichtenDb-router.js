@@ -27,6 +27,11 @@ gedichtenDb.use(session({
   //proxy: true
 }));
 
+if (gedichtenDb.get('env') === 'production') {
+  gedichtenDb.set('trust proxy', 1); // trust first proxy
+  session.cookie.secure = true; // serve secure cookies
+}
+
 //seqStore.sync();
 
 gedichtenDb.use(passport.initialize());

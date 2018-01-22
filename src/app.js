@@ -8,6 +8,7 @@ const fs = require('fs');
 
 const postlist = require('./views/posts/postlist');
 const goodReadsRouter = require('./routes/goodreads-router');
+const gedichtenDbRouter = require('./routes/gedichtenDb-router/gedichtenDb-router');
 const iframeContentPath = path.resolve(__dirname, 'public/apps');
 
 app.set('port', 8000);
@@ -17,7 +18,10 @@ app.set('views', path.resolve(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+/* Routes are used by calls of FrontendJR apps to the backend */
 app.use('/goodReads', goodReadsRouter);
+app.use('/gedichtenDb', gedichtenDbRouter); 
 
 app.get('/', (req, res) => {
    res.render('home', {

@@ -40,7 +40,7 @@ module.exports = function() {
   passport.deserializeUser(function(id, done) {
     User.findById(id)
       .then(user => {
-        done(null, user);
+        return done(null, user);
       })
       .catch(err => done(err));
   });

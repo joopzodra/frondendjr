@@ -14,9 +14,6 @@ const iframeContentPath = path.resolve(__dirname, 'public/apps');
 app.set('port', 8000);
 app.set('view engine', 'pug');
 app.set('views', path.resolve(__dirname, 'views'));
-if (process.env.NODE_ENV === 'production') {
-  app.set('trust proxy', 1); // trust first proxy, needed for express-session used by the gedichtenDbRouter 
-}
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());

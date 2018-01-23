@@ -27,11 +27,16 @@ gedichtenDb.use(session({
   saveUninitialized: false
 }));
 
-if (process.env.NODE_ENV === 'production') {
-  session.cookie = {
-    secure: true
-  };
-}
+// for express-session if app is behind reverse proxy and using ssl (see https://www.npmjs.com/package/express-session#cookiesecure)
+gedichtenDb.use(function(req, res, next) {
+  if (process.env.NODE_ENV === 'production') {
+    req.app.set('trust proxy', 1);
+    session.cookie = {
+      secure: true
+    };
+  }
+  next();
+});
 
 gedichtenDb.use(passport.initialize());
 gedichtenDb.use(passport.session());

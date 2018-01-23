@@ -35,6 +35,7 @@ gedichtenDb.use(function(req, res, next) {
       secure: true
     };
   }
+  //console.log('protocol:', req.protocol); nginx is configured with: proxy_set_header X-Forwarded-Proto $scheme; So the req.protocol should be https
   next();
 });
 

@@ -14,15 +14,15 @@ const iframeContentPath = path.resolve(__dirname, 'public/apps');
 app.set('port', 8000);
 app.set('view engine', 'pug');
 app.set('views', path.resolve(__dirname, 'views'));
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1); // trust first proxy, needed for express-session used by the gedichtenDbRouter 
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 /* Routes are used by calls of FrontendJR apps to the backend */
-if (process.env.NODE_ENV === 'production') {
-  app.set('trust proxy', 1); // trust first proxy, needed for express-session used by the gedichtenDbRouter 
-}
 app.use('/goodReads', goodReadsRouter);
 app.use('/gedichtenDb', gedichtenDbRouter);
 

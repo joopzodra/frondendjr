@@ -20,19 +20,24 @@ app.use(helmet());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 /* Routes are used by calls of FrontendJR apps to the backend */
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1); // trust first proxy, needed for express-session used by the gedichtenDbRouter 
+}
 app.use('/goodReads', goodReadsRouter);
-app.use('/gedichtenDb', gedichtenDbRouter); 
+app.use('/gedichtenDb', gedichtenDbRouter);
 
 app.get('/', (req, res) => {
-   res.render('home', {
+  res.render('home', {
     data: postlist
   });
 });
 
 app.get(/^(\/\d{4}-\d{2}-\d{2}-.+?)(\/.*)?$/, (req, res, next) => {
   //if url contains a '/' plus more after date+words, take only the part before the '/'
-  res.render('posts' + req.params[0], {data: postlist}, (err, html) => {
-    if(err) {
+  res.render('posts' + req.params[0], {
+    data: postlist
+  }, (err, html) => {
+    if (err) {
       next();
     } else {
       res.send(html);
@@ -46,7 +51,7 @@ app.get('/crossdomain.xml', (req, res) => {
   res.sendFile(__dirname + '/crossdomain.xml');
 });
 
-app.use('/apps', (req, res, next) => { 
+app.use('/apps', (req, res, next) => {
   const appDir = req.path.split('/')[1];
   const filePath = path.join(__dirname + '/public/apps', appDir, 'index.html');
   fs.stat(filePath, (err, fileInfo) => {

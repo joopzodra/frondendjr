@@ -27,15 +27,11 @@ gedichtenDb.use(session({
   saveUninitialized: false
 }));
 
-gedichtenDb.use(function(req, res, next) {
-  if (process.env.NODE_ENV === 'production') {
-    req.app.set('trust proxy', 1); // trust first proxy
-    session.cookie = {
-      secure: true
-    };
-  }
-  next();
-});
+if (process.env.NODE_ENV === 'production') {
+  session.cookie = {
+    secure: true
+  };
+}
 
 gedichtenDb.use(passport.initialize());
 gedichtenDb.use(passport.session());

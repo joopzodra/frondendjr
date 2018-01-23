@@ -4,3 +4,5 @@ frontendjr.sublime-workspace
 TO-DO-FrontendJR.txt
 gulpfile.js
 HOWTO.txt
+src/routes/**/*.db
+src/routes/**/*.sqlite

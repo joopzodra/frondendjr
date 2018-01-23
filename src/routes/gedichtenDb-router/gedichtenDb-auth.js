@@ -1,6 +1,12 @@
 const express = require('express');
 const passport = require('passport');
 const gedichtenDbAuth = express.Router();
+const Sequelize = require('sequelize');
+const path = require('path');
+
+const dbPath = path.join(__dirname, 'gedichtenDb.db');
+const sequelize = new Sequelize('sqlite:' + dbPath);
+const User = sequelize.import(path.join(__dirname, 'models/user'));
 
 gedichtenDbAuth.post('/login', function(req, res, next) {
 
@@ -48,6 +54,7 @@ gedichtenDbAuth.post('/signup', function(req, res, next) {
 });
 
 gedichtenDbAuth.use((err, req, res, next) => {
+  console.log(err) // TODO: verwijderen verwijderen verwijderen verwijderen verwijderen verwijderen 
   if (err.name === 'SequelizeUniqueConstraintError') {
     res.status(409);
     res.send('username-already-exists');

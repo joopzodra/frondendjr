@@ -3,7 +3,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const Sequelize = require('sequelize');
 const path = require('path');
 
-const sequelize = new Sequelize('sqlite:./src/routes/gedichtenDb-router/gedichtenDb.db');
+const dbPath = path.join(__dirname, 'gedichtenDb.db');
+const sequelize = new Sequelize('sqlite:' + dbPath);
 const User = sequelize.import(path.join(__dirname, 'models/user'));
 
 module.exports = function() {
@@ -41,5 +42,6 @@ module.exports = function() {
       .then(user => {
         done(null, user);
       })
+      .catch(err => done(err));
   });
 };

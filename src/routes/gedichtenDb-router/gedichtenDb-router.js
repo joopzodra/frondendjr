@@ -10,30 +10,32 @@ const gedichtenDbAuth = require('./gedichtenDb-auth');
 const gedichtenDbManager = require('./gedichtenDb-manager');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const sequelize = new Sequelize('sqlite:./src/routes/gedichtenDb-router/gedichtenDb.db');
+const dbPath = path.join(__dirname, 'gedichtenDb.db');
+const sequelize = new Sequelize('sqlite:' + dbPath);
 const User = sequelize.import(path.join(__dirname, 'models/user'));
-
 const seqStore = new SequelizeStore({
-    db: sequelize
-  });
+  db: sequelize
+});
+//seqStore.sync(); // Only when using a new DB. Sequelize sync method syncs all defined models to the DB. In this case a new table Session will be added to the DB.
+//User.sync();
 
 gedichtenDb.use(bodyParser.json());
 gedichtenDb.use(session({
-  secret: 'tkKKLOKKD(*&^KI*ue74',
+  secret: 'tkKKLOKKD(*&^KI*ue74', //TODO: via environment var
   store: seqStore,
   resave: false,
-  saveUninitialized: false,
-  //unset: 'destroy'
-  //proxy: true
+  saveUninitialized: false
 }));
 
-if (gedichtenDb.get('env') === 'production') {
-  session.proxy = true;
-  gedichtenDb.set('trust proxy', 1); // trust first proxy
-  session.cookie.secure = true; // serve secure cookies
-}
-
-//seqStore.sync();
+gedichtenDb.use(function(req, res, next) {
+  if (process.env.NODE_ENV === 'production') {
+    req.app.set('trust proxy', 1); // trust first proxy
+    session.cookie = {
+      secure: true
+    };
+  }
+  next();
+});
 
 gedichtenDb.use(passport.initialize());
 gedichtenDb.use(passport.session());

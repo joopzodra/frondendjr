@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
     return bcrypt.hash(user.password, saltRounds)
       .then(hashedPassword => {
         user.password = hashedPassword;
+      })
+      .catch(err => {
+        done(err);
       });
   });
 

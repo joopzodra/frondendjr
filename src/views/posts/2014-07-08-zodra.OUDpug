@@ -2,7 +2,7 @@ extends ../post
 
 block vars
  - var title = 'Zodra'
- - var description = 'Zodra.nl is de website van mijn eigen tekstbureau. Eén pagina slechts, puur in HTML en CSS.'
+ - var description = 'Zodra.nl is de website van mijn eigen tekstbureau. Simpel en beknopt.'
  - var category = 'WEBSITES'
  - var featuredImg = '/img/featured-img/zodra-200.jpg'
 

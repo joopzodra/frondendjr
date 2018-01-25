@@ -1,6 +1,6 @@
 let postlist =
 [ { key: 'Webapps',
-    catDescription: 'Webapps bekijk je in de browser op smartphone, tablet of pc. Het onderscheid tussen websites en webapps is diffuus. Een webapp is gericht op doen en interactie. Een website op bekijken of lezen van content.',
+    catDescription: 'Webapps bekijk je in de browser op smartphone, tablet of pc. Het onderscheid tussen websites en webapps is diffuus. Een webapp is gericht op doen en interactie. Een website op bekijken of lezen van content. Deze apps zijn gemaakt met Angular.',
     value: 
      [ { fileName: '2016-11-08-boeken',
          title: 'Boeken',
@@ -18,7 +18,7 @@ let postlist =
          description: 'App om bij te houden welke gemeenten meedoen aan een project.',
          featuredImg: '/img/featured-img/welke-gemeenten-doen-mee-200.jpg' } ] },
   { key: 'Hybride apps',
-    catDescription: 'Hybride apps bekijk je op smartphone of tablet. Het zijn eigenlijk webapps met een omhulsel. Daardoor hoef je ze niet in de browser te bekijken maar zijn het volwaardige apps op je mobiele apparaat.',
+    catDescription: 'Hybride apps zet je op je smartphone of tablet. Hybride wil zeggen dat ze werken op zowel iOS als Android. Deze apps zijn gemaakt met Ionic.',
     value: 
      [ { fileName: '2017-05-07-canonRO',
          title: 'CanonRO',
@@ -31,7 +31,7 @@ let postlist =
          description: 'Ionic 2 demo: huishoudboekje. Overzicht van maandelijkse uitgaven, geordend in verschillende rubrieken.',
          featuredImg: '/img/featured-img/mijn-uitgaven-200.jpg' } ] },
   { key: 'Interactieve kaarten',
-    catDescription: 'Interactieve kaarten kunnen onderdeel zijn van een app of website. Ze laten locaties of data zien. Je kunt zelf de locaties of data selecteren.',
+    catDescription: 'Interactieve kaarten kunnen onderdeel zijn van een app of website. Ze laten locaties of data zien. Deze kaarten zijn gemaakt met Leaflet, Google Maps, QGIS en D3.',
     value: 
      [ { fileName: '2014-04-29-locaties-op-de-kaart-leaflet',
          title: 'Locaties op de kaart (1)',
@@ -49,7 +49,7 @@ let postlist =
          description: 'Interactieve kaart met uitslagen gemeente\u00ADraads\u00ADverkiezingen in de vier grote steden.',
          featuredImg: '/img/featured-img/verkiezingsuitslagen-200.jpg' } ] },
   { key: 'Animaties',
-    catDescription: 'Animaties kunnen onderdeel zijn van een app of website. Wat ze laten zien kan erg uiteenlopen. Door het bewegend beeld trekken ze aandacht.',
+    catDescription: 'Animaties kunnen onderdeel zijn van een app of website. Wat ze laten zien kan erg uiteenlopen. Door het bewegend beeld trekken ze aandacht. Deze animaties zijn gemaakt met D3.',
     value: 
      [ { fileName: '2014-11-29-uiterwaarden',
          title: 'Uiterwaarden',
@@ -67,7 +67,7 @@ let postlist =
          description: 'Start de demo en volg stap voor stap het ambacht van een redacteur.',
          featuredImg: '/img/featured-img/eindredacteur-aan-het-werk-200.jpg' } ] },
   { key: 'Data in beeld',
-    catDescription: 'Data in beeld, oftewel datavisualisaties, kunnen onderdeel zijn van een app of website. Ze geven inzicht in omvangrijke of complexe data.',
+    catDescription: 'Data in beeld, oftewel datavisualisaties, kunnen onderdeel zijn van een app of website. Ze geven inzicht in omvangrijke of complexe data. Deze datavisualisaties zijn gemaakt met D3.',
     value: 
      [ { fileName: '2014-05-28-winsten-zelfstandige-artsen',
          title: 'Winsten zelfstandige artsen',

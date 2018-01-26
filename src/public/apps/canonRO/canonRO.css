@@ -28,11 +28,10 @@ header {
   border-radius: 4px;
   font-size: 0.8em;
   color: #fff;
-  margin-top: 27px;
+  margin-top: 23px;
   pointer-events: auto;
   display: inline-block;
-  float:  right;
-  margin-right: 100px;
+  margin-left: 100px;
 }
 .back {
   text-decoration: none;

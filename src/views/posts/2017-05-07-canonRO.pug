@@ -14,21 +14,29 @@ block articlecontent
   .intro
     p 
       |De CanonRO is een canon van de geschiedenis van de ruimtelijke ordening. Het laat zien welke projecten, personen en plannen typerend zijn voor de inrichting van Nederland.
+
+    p.go-to-app-button-par
+      a(href='/apps/canonRO' class='w3-button w3-theme go-to-app-button') Bekijk app in de browser (4,5 MB)
+    p
+     img(src="/img/featured-img/canonRO-600.jpg" class="article-featured-img")
+    h2
+      |Info
     p
       |Deze app bevat 1-op-1 de tekst en afbeeldingen van de 'Canon van de ruimtelijke ordering (CanonRO)'. Deze is in 2012 als boek uitgegeven door het Ministerie van Infrastructuur en Milieu. Je kunt het nog steeds 
       a(href='https://www.rijksoverheid.nl/documenten/rapporten/2013/10/28/35-iconen-van-ruimtelijke-ordening-in-nederland') downloaden als pdf
       |. Deze app is gemaakt omdat de pdf van het boek niet handig te bekijken is op een telefoon.
     p
-      |Een hybride app is een volwaardige app voor een telefoon of tablet. De app werkt op zowel iOS (iPhone, iPad) als op Android. Uit kostenoverwegingen is hij nu alleen beschikbaar via de Google Play Store, voor Android dus, en niet via de AppStore van Apple.
+      |Een hybride app is een volwaardige app voor een telefoon of tablet. De app werkt op zowel iOS (iPhone, iPad) als op Android. Ik heb hem nu alleen beschikbaar gesteld via de Google Play Store, voor Android dus. (Dat bespaart me de kosten voor de AppStore van Apple.)
+    p
+      |Je kunt van een hybride app alvast een indruk krijgen in de browser, ook al is hij daar niet helemaal goed op afgestemd. Hier en daar is de vormgeving dan ook niet perfect als je hem in de browser bekijkt. De app ook relatief groot vanwege de functionaliteiten die op mobiele apparaten zijn afgestemd: circa 4,5 MB. En de kaart in de app werkt niet in de browser; de browser heeft geen toegang tot alle functionaliteiten van telefoon of tablet.
     p
       |De app is gemaakt met Ionic. 
       a(href='https://github.com/joopzodra/canonRO') Bekijk de broncode van de app op GitHub.
     p
       a(href='https://play.google.com/store/apps/details?id=com.ionicframework.canonro727559') Installeer de app op je Android telefoon of tablet vanuit Google Play Store.
-    p
-      |Met wat aanpassingen kun je een hybride app geschikt maken voor browsers. Hij is wel relatief groot vanwege de functionaliteiten die op mobiele apparaten zijn afgestemd: circa 4,5 MB. Bekijk hem in de browser via de knop hieronder. (De kaart in de app werkt niet in de browser; de browser heeft geen toegang tot alle functionaliteiten van telefoon of tablet.)
 
-    p.go-to-app-button-par
-      a(href='/apps/canonRO' class='w3-button w3-theme go-to-app-button') Bekijk de app in de browser
-    p
-     img(src="/img/featured-img/canonRO-600.jpg" class="article-featured-img")
+block footerScripts
+  style(type='text/css').
+    .go-to-app-button-par{
+      max-width: 400px;
+    }

@@ -8,6 +8,15 @@ const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const sequelize = new Sequelize('sqlite:' + dbPath);
 const User = sequelize.import(path.join(__dirname, 'models/user'));
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.status(401);
+    res.json({type: 'fout'});
+  }
+}
+
 gedichtenDbAuth.post('/login', function(req, res, next) {
 
   passport.authenticate('local', function(err, user, info) {
@@ -15,9 +24,8 @@ gedichtenDbAuth.post('/login', function(req, res, next) {
       return next(err);
     }
     if (!user) {
-      return res.json({
-        authUser: false
-      });
+      res.status(401); 
+      return res.send('unauth-user');
     }
     req.logIn(user, function(err) {
       if (err) {
@@ -53,8 +61,12 @@ gedichtenDbAuth.post('/signup', function(req, res, next) {
     .catch(err => next(err));
 });
 
+gedichtenDbAuth.get('/who', ensureAuthenticated, function(req, res, next) {
+  let username = req.user.dataValues.username;
+  res.json({username: username});
+})
+
 gedichtenDbAuth.use((err, req, res, next) => {
-  console.log(err) // TODO: verwijderen verwijderen verwijderen verwijderen verwijderen verwijderen 
   if (err.name === 'SequelizeUniqueConstraintError') {
     res.status(409);
     res.send('username-already-exists');

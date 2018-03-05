@@ -12,19 +12,27 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const sequelize = new Sequelize('sqlite:' + dbPath);
-const User = sequelize.import(path.join(__dirname, 'models/user'));
+//const User = sequelize.import(path.join(__dirname, 'models/user'));
+//const Poem = sequelize.import(path.join(__dirname, 'models/poem'));
+//const Poet = sequelize.import(path.join(__dirname, 'models/poet'));
+//const Bundle = sequelize.import(path.join(__dirname, 'models/bundle'));
 const seqStore = new SequelizeStore({
   db: sequelize
 });
-//seqStore.sync(); // Only when using a new DB. Sequelize sync method syncs all defined models to the DB. In this case a new table Session will be added to the DB.
-//User.sync();
+
+// Only when using a new DB. Sequelize sync method syncs all defined models to the DB. In this case a new table Session will be added to the DB.
+// seqStore.sync(); 
+// User.sync();
+// Poem.sync();
+// Poet.sync();
+// Bundle.sync();
 
 const sess = {
   secret: 'tkKKLOKKD(*&^KI*ue74', //TODO: via environment var
   store: seqStore,
   resave: false,
   saveUninitialized: false,
-  cookie: {}
+  cookie: { }
 };
 
 // for express-session if app is behind reverse proxy and using ssl (see https://www.npmjs.com/package/express-session#cookiesecure)
@@ -33,16 +41,12 @@ gedichtenDb.use(function(req, res, next) {
     req.app.set('trust proxy', 1);
     sess.cookie.secure = true;
   }
-  //console.log('protocol:', req.protocol); //nginx is configured with: proxy_set_header X-Forwarded-Proto $scheme; So the req.protocol should be https
+  // console.log('protocol:', req.protocol); //nginx is configured with: proxy_set_header X-Forwarded-Proto $scheme; So the req.protocol should be https
   next();
 });
 
 gedichtenDb.use(bodyParser.json());
 gedichtenDb.use(session(sess));
-gedichtenDb.use(function(req, res, next) {
-  console.log(req.session, req.sessionID)
-  next();
-})
 gedichtenDb.use(passport.initialize());
 gedichtenDb.use(passport.session());
 setupPassport();

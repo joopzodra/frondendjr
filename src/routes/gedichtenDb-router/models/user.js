@@ -8,14 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.TEXT,
       validate: {
-        len: [4, 20],
+        len: [4, 15],
         isAlphanumeric: true
       }
     },
     password: {
       type: DataTypes.TEXT,
       validate: {
-        len: [4, 20],
+        len: [4, 15],
         not: ['[ ]']
       }
 

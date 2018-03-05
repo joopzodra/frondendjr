@@ -28,11 +28,13 @@ const seqStore = new SequelizeStore({
 // Bundle.sync();
 
 const sess = {
-  secret: 'tkKKLOKKD(*&^KI*ue74', //TODO: via environment var
+  secret: process.env.SESSION_SECRET,
   store: seqStore,
   resave: false,
   saveUninitialized: false,
-  cookie: { }
+  cookie: {
+    maxAge: 3600000
+  }
 };
 
 // for express-session if app is behind reverse proxy and using ssl (see https://www.npmjs.com/package/express-session#cookiesecure)

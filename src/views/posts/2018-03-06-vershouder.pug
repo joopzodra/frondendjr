@@ -1,0 +1,29 @@
+extends ../post
+
+block base
+  base(href='/2018-03-06-vershouder/')  
+
+block vars
+  - var title = 'Database manager'
+  - var description = 'Voor een database met gedichten: bekijk, wijzig en upload de verzen in de database.'
+  - var category = 'Webapps'
+  - var featuredImg = '/img/featured-img/canonRO-200.jpg'
+
+
+block articlecontent
+  .intro
+    p 
+      |Voor een database met gedichten: bekijk, wijzig en upload de verzen in de database.
+
+    p.go-to-app-button-par
+      a(href='/apps/vershouder' class='w3-button w3-theme go-to-app-button') Ga naar de app
+    p
+     img(src="/img/featured-img/canonRO-600.jpg" class="article-featured-img")
+
+
+
+block footerScripts
+  style(type='text/css').
+    .go-to-app-button-par{
+      max-width: 400px;
+    }

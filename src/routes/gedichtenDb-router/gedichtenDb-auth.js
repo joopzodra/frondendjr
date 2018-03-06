@@ -13,7 +13,7 @@ function ensureAuthenticated(req, res, next) {
     next();
   } else {
     res.status(401);
-    res.json({type: 'fout'});
+    res.json({type: 'unauthorized user'});
   }
 }
 

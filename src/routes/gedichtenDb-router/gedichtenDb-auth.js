@@ -8,6 +8,8 @@ const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const sequelize = new Sequelize('sqlite:' + dbPath);
 const User = sequelize.import(path.join(__dirname, 'models/user'));
 
+const userDataHelpers = require('./user-data-helpers');
+
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     next();
@@ -41,7 +43,7 @@ gedichtenDbAuth.post('/login', function(req, res, next) {
 gedichtenDbAuth.get('/logout',
   function(req, res) {
     req.logout();
-    req.session.destroy(); //NODIG???? Of req.session.store.destroy() of zoiets?
+    req.session.destroy(); // Deletes the session from the session-store.
     res.json({
       loggedOut: true
     });
@@ -49,24 +51,34 @@ gedichtenDbAuth.get('/logout',
 
 gedichtenDbAuth.post('/signup', function(req, res, next) {
   User.create({
-      username: req.body.username,
-      password: req.body.password
-    })
-    .then(user => {
-      res.status(201);
-      res.json({
-        userName: user.username
-      });
-    })
-    .catch(err => next(err));
+    username: req.body.username,
+    password: req.body.password
+  })
+  .then(user => {
+    userDataHelpers.insertUserData(user.id);
+    return user;
+  }) 
+  .then(user => {
+    const deleteUserData = userDataHelpers.deleteUserData;
+    userDataHelpers.cronJob(user.id, deleteUserData);
+    return user;
+  })
+  .then(user => {
+    res.status(201);
+    res.json({
+      userName: user.username
+    });
+  })
+  .catch(err => next(err));
 });
 
 gedichtenDbAuth.get('/who', ensureAuthenticated, function(req, res, next) {
   let username = req.user.dataValues.username;
   res.json({username: username});
-})
+});
 
 gedichtenDbAuth.use((err, req, res, next) => {
+  console.log(err);
   if (err.name === 'SequelizeUniqueConstraintError') {
     res.status(409);
     res.send('username-already-exists');
@@ -74,7 +86,7 @@ gedichtenDbAuth.use((err, req, res, next) => {
     res.status(400);
     res.send('Invalid data from user')
   }
-   else {
+  else {
     res.status(500);
     res.send('Database error (JR)');
   }

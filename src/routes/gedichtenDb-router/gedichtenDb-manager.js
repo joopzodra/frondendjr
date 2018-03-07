@@ -3,14 +3,8 @@ const Sequelize = require('sequelize');
 const gedichtenDbManager = express.Router();
 const path = require('path');
 const arrayWrap = require('arraywrap');
-
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
-//const sequelize = new Sequelize('sqlite:' + dbPath);
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: dbPath,
-  //logging: false
-});
+const sequelize = new Sequelize('sqlite:' + dbPath);
 const Poem = sequelize.import(path.join(__dirname, 'models/poem'));
 const Poet = sequelize.import(path.join(__dirname, 'models/poet'));
 const Bundle = sequelize.import(path.join(__dirname, 'models/bundle'));
@@ -40,9 +34,9 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
   query = `
   SELECT poems.id, poems.poet_id, poems.bundle_id, poems.title, poems.text, poems.url, poems.url_label, poems.comment, poets.name AS poet_name, bundles.title AS 'bundle_title'
   FROM poems
-  LEFT OUTER JOIN poets ON poets.user_id = ${userId} AND poems.poet_id = poets.id
-  LEFT OUTER JOIN bundles ON bundles.user_id = ${userId} AND poems.bundle_id = bundles.id
-  WHERE poems.user_id = ${userId} AND 
+  LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = 49) AND poems.poet_id = poets.id
+  LEFT OUTER JOIN bundles ON (bundles.user_id = ${userId} OR bundles.user_id = 49) AND poems.bundle_id = bundles.id
+  WHERE (poems.user_id = ${userId} OR poems.user_id = 49) AND 
   CASE 
   WHEN $liketerm != '%%' THEN ${column} LIKE $liketerm 
   ELSE ${column} LIKE $liketerm OR ${column} IS NULL 
@@ -51,15 +45,15 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
   LIMIT ${maxItems} OFFSET ${offset}`;
   break;
   case 'poets':
-  query = `SELECT poets.id, poets.name, poets.born, poets.died FROM poets WHERE poets.user_id = ${userId} AND poets.name LIKE $liketerm
+  query = `SELECT poets.id, poets.name, poets.born, poets.died FROM poets WHERE (poets.user_id = ${userId} OR poets.user_id = 49) AND poets.name LIKE $liketerm
   ORDER BY poets.name
   LIMIT ${maxItems} OFFSET ${offset}`;
   break;
   case 'bundles':
   query = `SELECT bundles.id, bundles.poet_id, bundles.year, bundles.title, poets.name AS poet_name
   FROM bundles
-  LEFT OUTER JOIN poets ON poets.user_id = ${userId} AND bundles.poet_id = poets.id
-  WHERE bundles.user_id = ${userId} AND ${column} LIKE $liketerm
+  LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = 49) AND bundles.poet_id = poets.id
+  WHERE (bundles.user_id = ${userId} OR bundles.user_id = 49) AND ${column} LIKE $liketerm
   ORDER BY poets.name, bundles.title
   LIMIT ${maxItems} OFFSET ${offset}`;
   break;
@@ -69,6 +63,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
 .catch(err => next(err));
 });
 
+// Simple example of Sequelize findAll, showing that queries with AND/OR quickly become complex. Therefore here above raw SQL queries.
 /*  Poem.findAll({
     attributes: {
       exclude: ['user_id']
@@ -96,11 +91,10 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const json = req.body;
-    const createItem = () => { 
+    const createItem = () => {
       switch(table) {
         case 'poems':
         return Poem.create({
-          id: json.id,
           title: json.title,
           text: json.text,
           poet_id: json.poet_id,
@@ -111,20 +105,24 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
           user_id: userId
         });
         case 'poets':
-        return Poet.create({
-          id: json.id,
-          name: json.name,
-          born: json.born,
-          died: json.died,
-          user_id: userId
+        return Poet.max('id').then(maxId => {
+          return Poet.create({
+            id: maxId + 1,
+            name: json.name,
+            born: json.born,
+            died: json.died,
+            user_id: userId
+          });          
         });
         case 'bundles':
-        return Bundle.create({
-          id: json.id,
-          title: json.title,
-          poet_id: json.poet_id,
-          year: json.year,
-          user_id: userId
+        return Bundle.max('id').then(maxId => {
+          return Bundle.create({
+            id: maxId + 1,
+            title: json.title,
+            poet_id: json.poet_id,
+            year: json.year,
+            user_id: userId
+          });          
         });
       }
     };
@@ -221,6 +219,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
       switch(table) {
         case 'poets':
         return Poet.findAll({
+          limit: 15,
           attributes: {
             exclude: ['user_id', 'createdAt', 'updatedAt']
           },
@@ -236,6 +235,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
         });
         case 'bundles':
         return Bundle.findAll({
+          limit: 15,
           attributes: {
             exclude: ['user_id', 'createdAt', 'updatedAt']
           },
@@ -283,6 +283,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
   });
 
   gedichtenDbManager.use((err, req, res, next) => {
+   console.log(err); 
    if (err.name === 'SequelizeValidationError') {
     res.status(400);
     res.send('Invalid data from user');
@@ -292,4 +293,4 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
   }
 });
 
-  module.exports = gedichtenDbManager;
+module.exports = gedichtenDbManager;

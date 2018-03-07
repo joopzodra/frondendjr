@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     born: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [4]     
+        len: [0, 4]     
       }  
     },
     died: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [4]      
+        len: [0, 4]      
       }  
     },
     user_id: {

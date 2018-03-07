@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
     url_label :{
       type: DataTypes.TEXT,
       validate: {
-        labelForValidUrl() {
-          if(!this.url) {
+        labelForValidUrl(value) {
+          if(value && !this.url) {
             throw new Error('URL-label requires that the URL-field is defined and valid');
           }
         }

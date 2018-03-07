@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     year: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [4]      
+        len: [0, 4]      
       }
     },
     user_id: {

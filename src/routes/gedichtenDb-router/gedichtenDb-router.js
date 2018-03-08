@@ -31,6 +31,7 @@ const sess = {
   secret: process.env.SESSION_SECRET,
   store: seqStore,
   resave: false,
+  rolling: true,
   saveUninitialized: false,
   cookie: {
     maxAge: 3600000

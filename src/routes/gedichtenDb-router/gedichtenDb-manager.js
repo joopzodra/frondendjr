@@ -22,6 +22,7 @@ function ensureAuthenticated(req, res, next) {
 }
 
 gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
+  const adminUserId = 49;
   const userId = req.user.id || 0;
   const queryString = arrayWrap(req.query.queryString || '')[0].trim();
   const table =  arrayWrap(req.query.table || '')[0];
@@ -34,9 +35,9 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
   query = `
   SELECT poems.id, poems.poet_id, poems.bundle_id, poems.title, poems.text, poems.url, poems.url_label, poems.comment, poets.name AS poet_name, bundles.title AS 'bundle_title'
   FROM poems
-  LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = 49) AND poems.poet_id = poets.id
-  LEFT OUTER JOIN bundles ON (bundles.user_id = ${userId} OR bundles.user_id = 49) AND poems.bundle_id = bundles.id
-  WHERE (poems.user_id = ${userId} OR poems.user_id = 49) AND 
+  LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = ${adminUserId}) AND poems.poet_id = poets.id
+  LEFT OUTER JOIN bundles ON (bundles.user_id = ${userId} OR bundles.user_id = ${adminUserId}) AND poems.bundle_id = bundles.id
+  WHERE (poems.user_id = ${userId} OR poems.user_id = ${adminUserId}) AND 
   CASE 
   WHEN $liketerm != '%%' THEN ${column} LIKE $liketerm 
   ELSE ${column} LIKE $liketerm OR ${column} IS NULL 
@@ -212,6 +213,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
   });
 
   gedichtenDbManager.get('/find-children', ensureAuthenticated, (req, res, next) => {
+    const adminUserId = 49;
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const query = arrayWrap(req.query.queryString || '')[0].trim();
@@ -229,7 +231,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
                 [Op.like]: '%' + query + '%'
               }
             }, {
-              user_id: req.user.id
+              user_id: userId || adminUserId
             }]
           }
         });
@@ -245,7 +247,7 @@ sequelize.query(query, {bind: {liketerm: `%${queryString}%`}, type: sequelize.Qu
                 [Op.like]: '%' + query + '%'
               }
             }, {
-              user_id: req.user.id
+              user_id: userId || adminUserId
             }]
           }
         });

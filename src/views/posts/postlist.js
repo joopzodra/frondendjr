@@ -6,7 +6,7 @@ let postlist =
          title: 'Database manager',
          category: 'Webapps',
          description: 'Voor een database met gedichten: bekijk, wijzig en upload de verzen in de database.',
-         featuredImg: '/img/featured-img/canonRO-200.jpg' },
+         featuredImg: '/img/featured-img/vershouder-200.jpg' },
        { fileName: '2016-11-08-boeken',
          title: 'Boeken',
          category: 'Webapps',

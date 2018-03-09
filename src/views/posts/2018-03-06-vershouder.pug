@@ -7,7 +7,7 @@ block vars
   - var title = 'Database manager'
   - var description = 'Voor een database met gedichten: bekijk, wijzig en upload de verzen in de database.'
   - var category = 'Webapps'
-  - var featuredImg = '/img/featured-img/canonRO-200.jpg'
+  - var featuredImg = '/img/featured-img/vershouder-200.jpg'
 
 
 block articlecontent
@@ -18,12 +18,7 @@ block articlecontent
     p.go-to-app-button-par
       a(href='/apps/vershouder' class='w3-button w3-theme go-to-app-button') Ga naar de app
     p
-     img(src="/img/featured-img/canonRO-600.jpg" class="article-featured-img")
-
-
+      a(href='/apps/vershouder')
+        img(src="/img/featured-img/vershouder-600.jpg" class="article-featured-img")
 
 block footerScripts
-  style(type='text/css').
-    .go-to-app-button-par{
-      max-width: 400px;
-    }

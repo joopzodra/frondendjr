@@ -265,7 +265,10 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
                 [Op.like]: '%' + query + '%'
               }
             }, {
-              user_id: userId || adminUserId
+              [Op.or]: [
+                {user_id: userId},
+                {user_id: adminUserId}
+              ]
             }]
           }
         });
@@ -281,7 +284,10 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
                 [Op.like]: '%' + query + '%'
               }
             }, {
-              user_id: userId || adminUserId
+              [Op.or]: [
+                {user_id: userId},
+                {user_id: adminUserId}
+              ]
             }]
           }
         });

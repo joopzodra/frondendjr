@@ -50,23 +50,23 @@ gedichtenDbAuth.get('/logout',
   });
 
 gedichtenDbAuth.post('/signup', function(req, res, next) {
+  let newUser;
   User.create({
     username: req.body.username,
     password: req.body.password
   })
   .then(user => {
+    newUser = user;
     userDataHelpers.insertUserData(user.id);
-    return user;
   }) 
-  .then(user => {
+  .then(() => {
     const deleteUserData = userDataHelpers.deleteUserData;
-    userDataHelpers.cronJob(user.id, deleteUserData);
-    return user;
+    userDataHelpers.cronJob(newUser.id, deleteUserData);
   })
-  .then(user => {
+  .then(() => {
     res.status(201);
     res.json({
-      userName: user.username
+      userName: newUser.username
     });
   })
   .catch(err => next(err));

@@ -188,6 +188,10 @@ article {
   image-rendering: crisp-edges;
   border: 1px solid rgba(0,0,0,0.3);
 
+  img {
+    max-width: 100%;
+  }
+
   @media (min-resolution: 192dpi) {
     width: 300px;
   }

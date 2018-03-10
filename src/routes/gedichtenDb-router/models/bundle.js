@@ -3,10 +3,6 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
   const Bundle = sequelize.define('bundle', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     title: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -22,11 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_id: {
       type: DataTypes.INTEGER
-    },
-    item_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
     }
   });
 

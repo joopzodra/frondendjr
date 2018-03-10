@@ -28,7 +28,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
   const table =  arrayWrap(req.query.table || '')[0];
   const column = arrayWrap(req.query.column || '')[0];
   const offset = arrayWrap(+req.query.offset || 0)[0];
-  const maxItems = arrayWrap(+req.query.maxItems || 100)[0];
+  const maxItems = arrayWrap(+req.query.maxItems || 10)[0];
   let query;
   switch (table) {
     case 'poems':

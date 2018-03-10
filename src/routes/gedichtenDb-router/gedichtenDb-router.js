@@ -12,20 +12,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const sequelize = new Sequelize('sqlite:' + dbPath);
-const User = sequelize.import(path.join(__dirname, 'models/user'));
-const Poem = sequelize.import(path.join(__dirname, 'models/poem'));
-const Poet = sequelize.import(path.join(__dirname, 'models/poet'));
-const Bundle = sequelize.import(path.join(__dirname, 'models/bundle'));
 const seqStore = new SequelizeStore({
   db: sequelize
 });
-
-// Only when using a new DB. Sequelize sync method syncs all defined models to the DB. In this case a new table Session will be added to the DB.
-// seqStore.sync(); 
-User.sync();
-Poem.sync();
-Poet.sync();
-Bundle.sync();
 
 const sess = {
   secret: process.env.SESSION_SECRET,

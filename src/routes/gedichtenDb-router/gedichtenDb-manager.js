@@ -22,7 +22,6 @@ function ensureAuthenticated(req, res, next) {
 }
 
 gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
-  const adminUserId = 49;
   const userId = req.user.id || 0;
   const queryString = arrayWrap(req.query.queryString || '')[0].trim();
   const table =  arrayWrap(req.query.table || '')[0];
@@ -35,9 +34,9 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     query = `
     SELECT poems.id, poems.poet_id, poems.bundle_id, poems.title, poems.text, poems.url, poems.url_label, poems.comment, poets.name AS poet_name, bundles.title AS 'bundle_title'
     FROM poems
-    LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = ${adminUserId}) AND poems.poet_id = poets.id
-    LEFT OUTER JOIN bundles ON (bundles.user_id = ${userId} OR bundles.user_id = ${adminUserId}) AND poems.bundle_id = bundles.id
-    WHERE (poems.user_id = ${userId} OR poems.user_id = ${adminUserId}) AND 
+    LEFT OUTER JOIN poets ON poets.user_id = ${userId} AND poems.poet_id = poets.id
+    LEFT OUTER JOIN bundles ON bundles.user_id = ${userId} AND poems.bundle_id = bundles.id
+    WHERE poems.user_id = ${userId} AND 
     CASE 
     WHEN $liketerm != '%%' THEN ${column} LIKE $liketerm 
     ELSE ${column} LIKE $liketerm OR ${column} IS NULL 
@@ -46,15 +45,15 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     LIMIT ${maxItems} OFFSET ${offset}`;
     break;
     case 'poets':
-    query = `SELECT poets.id, poets.name, poets.born, poets.died FROM poets WHERE (poets.user_id = ${userId} OR poets.user_id = 49) AND poets.name LIKE $liketerm
+    query = `SELECT poets.id, poets.name, poets.born, poets.died FROM poets WHERE poets.user_id = ${userId} AND poets.name LIKE $liketerm
     ORDER BY poets.name
     LIMIT ${maxItems} OFFSET ${offset}`;
     break;
     case 'bundles':
     query = `SELECT bundles.id, bundles.poet_id, bundles.year, bundles.title, poets.name AS poet_name
     FROM bundles
-    LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = 49) AND bundles.poet_id = poets.id
-    WHERE (bundles.user_id = ${userId} OR bundles.user_id = 49) AND ${column} LIKE $liketerm
+    LEFT OUTER JOIN poets ON poets.user_id = ${userId} AND bundles.poet_id = poets.id
+    WHERE bundles.user_id = ${userId} AND ${column} LIKE $liketerm
     ORDER BY poets.name, bundles.title
     LIMIT ${maxItems} OFFSET ${offset}`;
     break;
@@ -90,7 +89,6 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
 
 
   gedichtenDbManager.get('/find-by-id', ensureAuthenticated, (req, res, next) => {
-    const adminUserId = 49;
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const itemId =  arrayWrap(req.query.itemId || 0)[0];
@@ -100,9 +98,9 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
       query = `
       SELECT poems.id, poems.poet_id, poems.bundle_id, poems.title, poems.text, poems.url, poems.url_label, poems.comment, poets.name AS poet_name, bundles.title AS 'bundle_title'
       FROM poems
-      LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = ${adminUserId}) AND poems.poet_id = poets.id
-      LEFT OUTER JOIN bundles ON (bundles.user_id = ${userId} OR bundles.user_id = ${adminUserId}) AND poems.bundle_id = bundles.id
-      WHERE (poems.user_id = ${userId} OR poems.user_id = ${adminUserId}) 
+      LEFT OUTER JOIN poets ON poets.user_id = ${userId} AND poems.poet_id = poets.id
+      LEFT OUTER JOIN bundles ON bundles.user_id = ${userId} AND poems.bundle_id = bundles.id
+      WHERE poems.user_id = ${userId} 
       AND poems.id = ${itemId}`;
       break;
       case 'poets':
@@ -112,9 +110,9 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
       case 'bundles':
       query = `SELECT bundles.id, bundles.poet_id, bundles.year, bundles.title, poets.name AS poet_name
       FROM bundles
-      LEFT OUTER JOIN poets ON (poets.user_id = ${userId} OR poets.user_id = 49) AND bundles.poet_id = poets.id
-      WHERE (bundles.user_id = ${userId} OR bundles.user_id = 49) 
-      AND bundles.id = ${itemId}}`;
+      LEFT OUTER JOIN poets ON poets.user_id = ${userId} AND bundles.poet_id = poets.id
+      WHERE bundles.user_id = ${userId} 
+      AND bundles.id = ${itemId}`;
       break;
     }
     sequelize.query(query, {type: sequelize.QueryTypes.SELECT})
@@ -247,7 +245,6 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
   });
 
   gedichtenDbManager.get('/find-children', ensureAuthenticated, (req, res, next) => {
-    const adminUserId = 49;
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const query = arrayWrap(req.query.queryString || '')[0].trim();
@@ -265,10 +262,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
                 [Op.like]: '%' + query + '%'
               }
             }, {
-              [Op.or]: [
-                {user_id: userId},
-                {user_id: adminUserId}
-              ]
+              user_id: userId
             }]
           }
         });
@@ -284,10 +278,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
                 [Op.like]: '%' + query + '%'
               }
             }, {
-              [Op.or]: [
-                {user_id: userId},
-                {user_id: adminUserId}
-              ]
+              user_id: userId
             }]
           }
         });

@@ -16,11 +16,6 @@ const seqStore = new SequelizeStore({
   db: sequelize
 });
 
-const Poet = sequelize.import(path.join(__dirname, 'models/poet'));
-const Bundle = sequelize.import(path.join(__dirname, 'models/bundle'));
-Poet.sync();
-Bundle.sync();
-
 const sess = {
   secret: process.env.SESSION_SECRET,
   store: seqStore,

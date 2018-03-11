@@ -138,7 +138,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
           user_id: userId
         });
         case 'poets':
-        return Poet.max('id').then(maxId => {
+        return Poet.max('id').then((maxId = 0) => {
           return Poet.create({
             id: maxId + 1,
             name: json.name,
@@ -148,7 +148,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
           });          
         });
         case 'bundles':
-        return Bundle.max('id').then(maxId => {
+        return Bundle.max('id').then((maxId = 0) => {
           return Bundle.create({
             id: maxId + 1,
             title: json.title,

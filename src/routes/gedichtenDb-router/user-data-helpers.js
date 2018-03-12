@@ -9,8 +9,8 @@ module.exports = {
 
     const adminUserId = 49;
     const queryPoems = `INSERT INTO poems (title, text, text_lines, poet_id, bundle_id, url, url_label, comment, user_id, createdAt, updatedAt) SELECT title, text, ${0}, poet_id, bundle_id, url, url_label, comment, ${userId}, datetime('now'), datetime('now') FROM poems WHERE user_id=${adminUserId}`;
-    const queryPoets = `INSERT INTO poets SELECT id, name, born, died, ${userId}, datetime('now'), datetime('now') FROM poets WHERE user_id=${adminUserId}`;
-    const queryBundles = `INSERT INTO bundles SELECT id, title, poet_id, year, ${userId}, datetime('now'), datetime('now') FROM bundles WHERE user_id=${adminUserId}`;
+    const queryPoets = `INSERT INTO poets SELECT id, name, born, died, ${userId}, null, datetime('now'), datetime('now') FROM poets WHERE user_id=${adminUserId}`;
+    const queryBundles = `INSERT INTO bundles SELECT id, title, poet_id, year, ${userId}, null, datetime('now'), datetime('now') FROM bundles WHERE user_id=${adminUserId}`;
     
     return sequelize.transaction(function (t) {
       return Promise.all([

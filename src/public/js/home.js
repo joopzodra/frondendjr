@@ -43,7 +43,7 @@
     }
   }
 
-  var PANEL_ANIMATION_DELAY = 15; /*ms*/
+  var PANEL_ANIMATION_DELAY = 150; /*ms*/
   var PANEL_ANIMATION_STEPS = 10;
 
   function animateToggle(el, direction) {

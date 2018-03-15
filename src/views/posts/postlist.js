@@ -89,17 +89,17 @@ let postlist =
          category: 'Data in beeld',
          description: 'Bekijk per operatie hoe vaak deze jaarlijks is uitgevoerd.',
          featuredImg: '/img/featured-img/operaties-200.jpg' } ] },
-  { key: 'WEBSITES',
+  { key: 'Websites',
     catDescription: undefined,
     value: 
      [ { fileName: '2014-11-06-valleilijn',
          title: 'Valleilijn',
-         category: 'WEBSITES',
+         category: 'Websites',
          description: 'Valleilijn.nl geeft reizigersinformatie over de OV-verbinding Amersfoort – Ede – Wageningen.',
          featuredImg: '/img/featured-img/valleilijn-200.jpg' },
        { fileName: '2014-10-16-publicspace',
          title: 'Public Space',
-         category: 'WEBSITES',
+         category: 'Websites',
          description: 'Public Space is een onafhankelijke denktank gericht op maatschappelijk ondernemen.',
          featuredImg: '/img/featured-img/publicspace-200.jpg' } ] } ];
 

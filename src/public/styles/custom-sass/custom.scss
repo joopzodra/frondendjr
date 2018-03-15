@@ -23,6 +23,7 @@ button {
   &:hover {
     background-color: #fff !important;
   }
+  position: relative;
 }
 .portfolio-category-header img {
   vertical-align:middle;
@@ -207,6 +208,12 @@ article {
 .go-to-app-button:hover {
   background-color:#607d8b !important;
   color: #fff !important;
+}
+ul.categories-list > li {
+  font-weight: bold;
+}
+ul.categories-list > li > ul {
+  font-weight: normal;
 }
 @media (min-width:993px) {
   aside {

@@ -12,6 +12,7 @@ block content
       .w3-col.l3.w3-theme-d4
         aside.w3-container.w3-padding-32
           - var postlist = data.postlist
+            h5 PORTFOLIO
             ul.categories-list(style='list-style-type:none;')
               each item in postlist
                 li(style='padding-bottom:20px;')= item.key

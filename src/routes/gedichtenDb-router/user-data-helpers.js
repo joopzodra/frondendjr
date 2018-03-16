@@ -2,7 +2,7 @@ const path = require('path');
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('sqlite:' + dbPath);
-const schedule = require('node-schedule');
+const CronJob = require('cron').CronJob;
 
 module.exports = {
   insertUserData: (userId) => {
@@ -40,8 +40,9 @@ module.exports = {
   cronJob: (userId, functionToExecute) => {
     const now = new Date();
       const deleteDate = new Date(now.getTime() + 1440*60000); // 1440*60000ms is 24 hours
-      schedule.scheduleJob(deleteDate, () => {
+      const job = new CronJob(deleteDate, () => {
         functionToExecute(userId);
       });
+      job.start();
     }
   }

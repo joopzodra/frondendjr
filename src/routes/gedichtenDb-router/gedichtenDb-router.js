@@ -9,6 +9,8 @@ const setupPassport = require('./setup-passport');
 const gedichtenDbAuth = require('./gedichtenDb-auth');
 const gedichtenDbManager = require('./gedichtenDb-manager');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const CronJob = require('cron').CronJob;
+const userDataHelpers = require('./user-data-helpers');
 
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const sequelize = new Sequelize('sqlite:' + dbPath);
@@ -26,6 +28,11 @@ const sess = {
     maxAge: 3600000
   }
 };
+
+const job = new CronJob('00 * * * * *', function() {
+  userDataHelpers.deleteUserData();
+});
+job.start();
 
 // For express-session, if app is behind reverse proxy and using ssl (see https://www.npmjs.com/package/express-session#cookiesecure)
 gedichtenDb.use(function(req, res, next) {

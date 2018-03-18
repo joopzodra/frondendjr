@@ -58,10 +58,6 @@ gedichtenDbAuth.post('/signup', function(req, res, next) {
   .then(user => {
     newUser = user;
     return userDataHelpers.insertUserData(user.id);
-  }) 
-  .then(() => {
-    const deleteUserData = userDataHelpers.deleteUserData;
-    return userDataHelpers.cronJob(newUser.id, deleteUserData);
   })
   .then(() => {
     res.status(201);

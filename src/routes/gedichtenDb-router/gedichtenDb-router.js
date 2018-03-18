@@ -29,7 +29,7 @@ const sess = {
   }
 };
 
-const job = new CronJob('00 * * * * *', function() {
+const job = new CronJob('* 00 * * * *', function() {
   userDataHelpers.deleteUserData();
 });
 job.start();

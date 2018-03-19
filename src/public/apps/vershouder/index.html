@@ -1,1 +1,49 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>gedichtenDb</title><base href="/apps/vershouder/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link href="styles.14f23d9787284c9547a7.bundle.css" rel="stylesheet"/></head><body><jr-root></jr-root><script type="text/javascript" src="inline.40a8f4a0adecb54d64a4.bundle.js"></script><script type="text/javascript" src="polyfills.7edc676f7558876c179d.bundle.js"></script><script type="text/javascript" src="main.4ad55cd74a930a83c325.bundle.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>gedichtenDb</title><base href="/apps/vershouder/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><style>/* Styles for initial header which shows before app is loaded */
+  #header-bar {
+    display: flex;
+  }
+  #app-title {
+    flex: 5 5 65%;
+    text-align: center;
+    margin-left: 0%;
+  }
+  .back {
+    text-decoration: none;
+    flex: 1 0 80px;
+    align-self: center;
+    margin-left:15px;
+    margin-right: 15%;
+    text-align: center;
+  }
+  .back p {
+    margin-top: 15px;
+    font-size: 1em;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 4px 8px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  @media (max-width: 600px) {
+    #app-title {
+      font-size: 24px;
+    }
+    .back {
+      margin-left: 4px;
+      margin-right: 0;
+    }
+    .back p {
+     padding: 4px 2px;
+     font-size: 0.8em;
+   }
+ }
+ .spinner {
+  height: 80px;
+  width: 80px;
+  margin: 94px auto 0 auto;
+  position: relative;
+  border-left: 8px solid rgba(0,0,0, .15);
+  border-right: 8px solid rgba(0,0,0, .15);
+  border-bottom: 8px solid rgba(0,0,0, .15);
+  border-top: 8px solid rgba(0,0,0, .8);
+  border-radius: 100%;
+}</style><link href="styles.14f23d9787284c9547a7.bundle.css" rel="stylesheet"/></head><body><jr-root><div id="header-bar" class="w3-teal w3-row"><a href="https://frontendJR.nl" class="back"><p>FrontendJR</p></a><h1 id="app-title" class="serif">Vershouder</h1></div><div class="spinner w3-spin"></div></jr-root><script type="text/javascript" src="inline.40a8f4a0adecb54d64a4.bundle.js"></script><script type="text/javascript" src="polyfills.7edc676f7558876c179d.bundle.js"></script><script type="text/javascript" src="main.4ad55cd74a930a83c325.bundle.js"></script></body></html>

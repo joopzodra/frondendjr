@@ -66,11 +66,9 @@ app.use('/apps', (req, res, next) => {
   });
 });
 
+// Instead of 404 response, redirect to home
 app.use((req, res) => {
-  res.status(404);
-  res.render('home', {
-    data: postlist
-  });
+  res.redirect('/');
 });
 
 app.use((err, req, res, next) => {

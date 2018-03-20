@@ -19,6 +19,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 /* Routes are used by calls of FrontendJR apps to the backend */
 app.use('/goodReads', goodReadsRouter);
 app.use('/gedichtenDb', gedichtenDbRouter);
@@ -41,8 +45,6 @@ app.get(/^(\/\d{4}-\d{2}-\d{2}-.+?)(\/.*)?$/, (req, res, next) => {
     }
   });
 });
-
-app.use('/iframe-content', express.static(iframeContentPath));
 
 app.get('/crossdomain.xml', (req, res) => {
   res.sendFile(__dirname + '/crossdomain.xml');

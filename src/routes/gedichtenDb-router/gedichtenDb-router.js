@@ -34,15 +34,10 @@ const job = new CronJob('* 00 * * * *', function() {
 });
 job.start();
 
-// For express-session, if app is behind reverse proxy and using ssl (see https://www.npmjs.com/package/express-session#cookiesecure)
-gedichtenDb.use(function(req, res, next) {
-  if (process.env.NODE_ENV === 'production') {
-    req.app.set('trust proxy', 1);
-    sess.cookie.secure = true;
-  }
-  // console.log('protocol:', req.protocol); //nginx is configured with: proxy_set_header X-Forwarded-Proto $scheme; So the req.protocol should be https
-  next();
-});
+// For express-session, if app is behind reverse proxy and using ssl (see https://www.npmjs.com/package/express-session#cookiesecure). NB: app.set('trust proxy', 1) is set in app.js
+if (process.env.NODE_ENV === 'production') {
+  sess.cookie.secure = true;
+} 
 
 gedichtenDb.use(bodyParser.json());
 gedichtenDb.use(session(sess));

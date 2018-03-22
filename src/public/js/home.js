@@ -29,46 +29,19 @@
     }
   }
 
+// Home page, animated collapsable content
   var moreButton = document.getElementById('more-button');
-  moreButton.addEventListener('click', toggleMore, false);
   var introMore = document.getElementById('intro-more');
-  introMore.style.display = 'none';
-
-  function toggleMore() {
-    moreButton.innerHTML = moreButton.innerHTML === 'Meer \u25BD' ? '\u25B3 Minder' : 'Meer \u25BD';
-    if (introMore.style.display === 'none') {
-      animateToggle(introMore, 1);
+  moreButton.addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = introMore;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      moreButton.innerHTML = 'Meer \u25BD';
     } else {
-      animateToggle(introMore, -1);
+      content.style.maxHeight = content.scrollHeight + "px";
+      moreButton.innerHTML = 'Minder \u25B3';
     }
-  }
-
-  var PANEL_ANIMATION_DELAY = 150; /*ms*/
-  var PANEL_ANIMATION_STEPS = 10;
-
-  function animateToggle(el, direction) {
-    el.style.display = 'block';
-    var contentHeight = el.offsetHeight;
-    if (direction === 1) {
-      el.style.height = '0px';
-    }
-    var stepHeight = contentHeight / PANEL_ANIMATION_STEPS;
-    setTimeout(function() {
-      animateStep(el, 1, stepHeight, direction);
-    }, PANEL_ANIMATION_DELAY);
-  }
-
-  function animateStep(el, iteration, stepHeight, direction) {
-    if (iteration < PANEL_ANIMATION_STEPS) {
-      el.style.height = Math.round(((direction > 0) ? iteration : PANEL_ANIMATION_STEPS - iteration) * stepHeight) + "px";
-      iteration++;
-      setTimeout(function() {
-        animateStep(el, iteration, stepHeight, direction);
-      }, PANEL_ANIMATION_DELAY);
-    } else {
-      el.style.display = (direction < 0) ? 'none' : 'block';
-      el.style.height = '';
-    }
-  }
+  });
 
 })();

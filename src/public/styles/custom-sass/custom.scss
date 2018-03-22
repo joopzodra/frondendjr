@@ -13,6 +13,12 @@ button {
   padding-top: 48px;
   padding-bottom: 16px;
 }
+#intro-more {
+/* for collapsable content */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
 #intro img {
   display: block;
   width: 80px;

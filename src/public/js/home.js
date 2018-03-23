@@ -20,12 +20,13 @@
       body.appendChild(leaflet);
 
       leaflet.onload = function() {
-        var map = L.map('leaflet-inner-container').setView([51.9615616, 5.6517542], 13);
+        var map = L.map('leaflet-inner-container', {attributionControl: false}).setView([51.9615616, 5.6517542], 13);
+        L.control.attribution({prefix: ''}).addTo(map);
         L.tileLayer('https://b.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
         L.marker([51.9615616, 5.6517542]).addTo(map);
-      }
+      };
     }
   }
 

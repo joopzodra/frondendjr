@@ -6,3 +6,5 @@ gulpfile.js
 HOWTO.txt
 src/routes/**/*.db
 src/routes/**/*.sqlite
+
+src/public/uploads/

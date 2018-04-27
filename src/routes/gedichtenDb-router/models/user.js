@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -22,13 +21,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  User.beforeCreate(user => {
+  User.beforeCreate((user) => {
     return bcrypt.hash(user.password, saltRounds)
       .then(hashedPassword => {
         user.password = hashedPassword;
       })
       .catch(err => {
-        done(err);
+        throw new Error(err);
       });
   });
 

@@ -18,6 +18,8 @@ const seqStore = new SequelizeStore({
   db: sequelize
 });
 
+//sequelize.sync();
+
 const sess = {
   secret: process.env.SESSION_SECRET,
   store: seqStore,

@@ -1,5 +1,3 @@
-const Sequelize = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
 
   const Poet = sequelize.define('poet', {
@@ -30,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
+    },
+    img_url: {
+      type: DataTypes.TEXT
     }
   });
 

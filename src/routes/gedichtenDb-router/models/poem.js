@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 const validUrl = require('valid-url');
 
 module.exports = (sequelize, DataTypes) => {

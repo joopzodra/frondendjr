@@ -9,6 +9,10 @@ const Poem = sequelize.import(path.join(__dirname, 'models/poem'));
 const Poet = sequelize.import(path.join(__dirname, 'models/poet'));
 const Bundle = sequelize.import(path.join(__dirname, 'models/bundle'));
 const Op = Sequelize.Op;
+const multer  = require('multer');
+const uploadDir = path.join(__dirname, '../../public/uploads/gedichtenDb');
+const upload = multer({ dest: uploadDir });
+const fs = require('fs');
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -19,6 +23,54 @@ function ensureAuthenticated(req, res, next) {
       type: 'unauthorized user'
     });
   }
+}
+
+function setPoetImgFileName(id, item, file, affectedCount) {
+  // If id, then it's a new item, and POST/create returns an item, else it's an updated item and PUT/update return the number of affected database-table-rows (as a number in an array). Item is needed in frontend; affectedCount is only for dev check.
+  const resolveValue = id ? affectedCount : item;
+  if (!file) {
+    return Promise.resolve(resolveValue);
+  }
+  const itemId = id ? id : item.id;
+  const fileExt = getFileExt(file.mimetype);
+  const fileName = file.filename;
+  return new Promise((resolve, reject) => {
+    fs.rename(path.join(uploadDir, fileName), path.join(uploadDir, itemId + fileExt), (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(resolveValue);
+      }
+    });
+  });
+}
+
+function getFileExt(mimetype) {
+  let fileExt;
+  if (mimetype === 'image/jpeg') {
+    fileExt = '.jpg';
+  }
+  if (mimetype === 'image/png') {
+    fileExt = '.png';
+  }
+  return fileExt;
+}
+
+function deletePoetImg(id, imgUrl, tableRows) {
+  // tableRows is the return value of Poet.delete; we just pass it on.
+  if (!imgUrl) {
+    return Promise.resolve(tableRows);
+  }
+  const filePath = path.join(uploadDir, imgUrl);
+  return new Promise((resolve, reject) => {
+    fs.unlink(filePath, err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(tableRows);
+      }
+    });
+  });
 }
 
 gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
@@ -45,7 +97,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     LIMIT ${maxItems} OFFSET ${offset}`;
     break;
     case 'poets':
-    query = `SELECT poets.id, poets.name, poets.born, poets.died FROM poets WHERE poets.user_id = ${userId} AND poets.name LIKE $liketerm
+    query = `SELECT poets.id, poets.name, poets.born, poets.died, poets.item_id, poets.img_url FROM poets WHERE poets.user_id = ${userId} AND poets.name LIKE $liketerm
     ORDER BY poets.name
     LIMIT ${maxItems} OFFSET ${offset}`;
     break;
@@ -92,6 +144,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const itemId =  arrayWrap(req.query.itemId || 0)[0];
+    let query;
 
     switch (table) {
       case 'poems':
@@ -104,7 +157,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
       AND poems.id = ${itemId}`;
       break;
       case 'poets':
-      query = `SELECT poets.id, poets.name, poets.born, poets.died FROM poets
+      query = `SELECT poets.id, poets.name, poets.born, poets.died, poets.item_id, poets.img_url FROM poets
       WHERE poets.id = ${itemId}`;
       break;
       case 'bundles':
@@ -120,10 +173,11 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     .catch(err => next(err));
   });
 
-  gedichtenDbManager.post('/create', ensureAuthenticated, (req, res, next) => {
+  gedichtenDbManager.post('/create', ensureAuthenticated, upload.single('img'), (req, res, next) => {
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const json = req.body;
+    const imgExt = req.file ? getFileExt(req.file.mimetype) : null;
     const createItem = () => {
       switch(table) {
         case 'poems':
@@ -145,8 +199,11 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
             name: json.name,
             born: json.born,
             died: json.died,
-            user_id: userId
-          });          
+            user_id: userId,
+            img_url: imgExt ? imgExt : ''
+          })
+          //.then(res => {console.log('created res: ', res); return res;})
+          ;          
         });
         case 'bundles':
         return Bundle.max('id').then(maxId => {
@@ -162,17 +219,18 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
       }
     };
     createItem()
-    .then(createdItem => {
-      res.json(createdItem);
-    })
+    .then(createdItem => setPoetImgFileName(undefined, createdItem, req.file))
+    .then(createdItem => res.json(createdItem))
     .catch(err => next(err));
   });
 
-  gedichtenDbManager.put('/update', ensureAuthenticated, (req, res, next) => {
+  gedichtenDbManager.put('/update', ensureAuthenticated, upload.single('img'), (req, res, next) => {
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const json = req.body;
-    const updateItem = () => { 
+    const imgExt = req.file ? getFileExt(req.file.mimetype) : null;
+    const imgUrl = req.file ? json.id + imgExt : json.img_url; 
+    const updateItem = () => {
       switch(table) {
         case 'poems':
         return Poem.update({
@@ -192,7 +250,8 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
         return Poet.update({
           name: json.name,
           born: json.born,
-          died: json.died
+          died: json.died,
+          img_url: imgUrl
         }, {
           where: {
             [Op.and]: [{id: json.id}, {user_id: userId}]
@@ -211,7 +270,8 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
       }
     };
     updateItem()
-    .then(confirmation => res.json(confirmation))
+    .then(affectedCount => setPoetImgFileName(json.id, undefined, req.file, affectedCount))
+    .then(affectedCount => res.json({affectedCount: affectedCount, imgUrl: imgUrl}))
     .catch(err => next(err));
   });
 
@@ -219,6 +279,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const id = arrayWrap(req.query.id || '')[0];
+    const imgUrl = arrayWrap(req.query.imgUrl || '')[0];
     const destroyItem = () => { 
       switch(table) {
         case 'poems':
@@ -232,7 +293,8 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
           where: {
             [Op.and]: [{id: id}, {user_id: userId}]
           }
-        });
+        })
+        .then(tableRows => deletePoetImg(id, imgUrl, tableRows));
         case 'bundles':
         return Bundle.destroy({
           where: {
@@ -292,32 +354,36 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
   });
 
   gedichtenDbManager.get('/find-child-by-id', ensureAuthenticated, (req, res, next) => {
-    const userId = req.user.id || 0;
     const table =  arrayWrap(req.query.table || '')[0];
     const id = arrayWrap(req.query.id || '')[0];
-    const findById = () => {
+    const findOne = () => {
       switch(table) {
         case 'poets':
-        return Poet.findById(id, {
+        return Poet.findOne({
           attributes: {
             exclude: ['user_id', 'createdAt', 'updatedAt']
+          },
+          where: {
+            id: id
           }
         });
         case 'bundles':
-        return Bundle.findById(id,{
+        return Bundle.findOne({
           attributes: {
             exclude: ['user_id','createdAt', 'updatedAt']
+          },
+          where: {
+            id: id
           }
         });
       }
     };
-    findById()
+    findOne()
     .then(child => res.json(child))
     .catch(err => next(err));
-
   });
 
-  gedichtenDbManager.use((err, req, res, next) => {
+  gedichtenDbManager.use((err, req, res) => {
    console.log(err); 
    if (err.name === 'SequelizeValidationError') {
     res.status(400);

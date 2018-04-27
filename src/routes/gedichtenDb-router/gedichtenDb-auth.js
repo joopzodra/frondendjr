@@ -68,19 +68,19 @@ gedichtenDbAuth.post('/signup', function(req, res, next) {
   .catch(err => next(err));
 });
 
-gedichtenDbAuth.get('/who', ensureAuthenticated, function(req, res, next) {
+gedichtenDbAuth.get('/who', ensureAuthenticated, function(req, res) {
   let username = req.user.dataValues.username;
   res.json({username: username});
 });
 
-gedichtenDbAuth.use((err, req, res, next) => {
+gedichtenDbAuth.use((err, req, res) => {
   console.log(err);
   if (err.name === 'SequelizeUniqueConstraintError') {
     res.status(409);
     res.send('username-already-exists');
   } else if (err.name === 'SequelizeValidationError') {
     res.status(400);
-    res.send('Invalid data from user')
+    res.send('Invalid data from user');
   }
   else {
     res.status(500);

@@ -421,7 +421,7 @@ gedichtenDbManager.get('/find-all', ensureAuthenticated, (req, res, next) => {
     .catch(err => next(err));
   });
 
-  gedichtenDbManager.use((err, req, res) => {
+  gedichtenDbManager.use((err, req, res, next) => {
    console.log(err); 
    if (err.name === 'SequelizeValidationError') {
     res.status(400);

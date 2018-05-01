@@ -73,8 +73,7 @@ gedichtenDbAuth.get('/who', ensureAuthenticated, function(req, res) {
   res.json({username: username});
 });
 
-gedichtenDbAuth.use((err, req, res) => {
-  console.log(err);
+gedichtenDbAuth.use((err, req, res, next) => {
   if (err.name === 'SequelizeUniqueConstraintError') {
     res.status(409);
     res.send('username-already-exists');

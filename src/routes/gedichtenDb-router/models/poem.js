@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
 
   const Poem = sequelize.define('poem', {
     title: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      validate: {
+        len: [0, 400]
+      }
     },
     text: {
       type: DataTypes.TEXT,
@@ -33,8 +36,9 @@ module.exports = (sequelize, DataTypes) => {
         isUrlExtended(value){
           if (value !== '' && !validUrl.isWebUri(value)) {
             throw new Error('Invalid URL');
-          }          
-        }      
+          }         
+        },
+        len: [0, 600]    
       }
     },
     url_label :{
@@ -45,10 +49,14 @@ module.exports = (sequelize, DataTypes) => {
             throw new Error('URL-label requires that the URL-field is defined and valid');
           }
         }
-      }
+      },
+      len: [0, 600]
     },
     comment: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      validate: {
+        len: [0, 2000]
+      }
     },
     user_id: {
       type: DataTypes.INTEGER

@@ -7,7 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [0, 800]
+      }
     },
     poet_id: {
       type: DataTypes.INTEGER

@@ -5,6 +5,7 @@ const sequelize = new Sequelize('sqlite:' + dbPath);
 const Poet = sequelize.import(path.join(__dirname, 'models/poet'));
 const fs = require('fs');
 const uploadDir = path.join(__dirname, '../../public/uploads/gedichtenDb');
+const Op = Sequelize.Op;
 
 module.exports = {
   insertUserData: (userId) => {
@@ -37,14 +38,22 @@ module.exports = {
       .then(poets => {
         return Promise.all(poets.map(poet => {
           if (poet.img_url) {
+            // Set img_url to new value
             const itemId = poet.getDataValue('item_id');
             const imgExt = '.' + poet.getDataValue('img_url').split('.').pop();
-            poet.set('img_url', itemId + imgExt);            
-            const nameToGet = poet.getDataValue('id');
+            poet.set('img_url', itemId + imgExt);
+            // Copy image to this new url value
             const nameToSet = poet.getDataValue('item_id');
             return poet.save()
             .then(() => {
-              return fs.copyFile(uploadDir +  '/' + nameToGet + imgExt, uploadDir + '/' + nameToSet + imgExt, (err) => {
+              return  Poet.findOne({where: {
+                [Op.and]: [{user_id: adminUserId}, {id: poet.id}]
+              }});
+            })
+            .then(poet => poet.getDataValue('img_url'))
+            .then((img_url) => {
+              return fs.copyFile(uploadDir +  '/' + img_url, uploadDir + '/' + nameToSet + imgExt, (err) => {
+                console.log('van: ', uploadDir +  '/' + img_url + imgExt, ', naar :', uploadDir + '/' + nameToSet + imgExt);
                 if(err) return err;
                 return;
               });

@@ -35,32 +35,27 @@ module.exports = {
     .then(() => {
       return Poet.findAll({where: {user_id : userId}})
       .then(poets => {
-        // First promise: add img_url to poets, based on item_id
-        const prom1 = Promise.all(poets.map(poet => {
-          const itemId = poet.getDataValue('item_id');
-          const imgExt = '.' + poet.getDataValue('img_url').split('.').pop();
-          poet.set('img_url', itemId + imgExt);
-          return poet.save();          
-        }));
-        // Second promise: copy poets images and give them names based on item_id
-        const prom2 = Promise.all(poets.map(poet => {
-          return new Promise((resolve, reject) => {
+        return Promise.all(poets.map(poet => {
+          if (poet.img_url) {
+            const itemId = poet.getDataValue('item_id');
             const imgExt = '.' + poet.getDataValue('img_url').split('.').pop();
+            poet.set('img_url', itemId + imgExt);            
             const nameToGet = poet.getDataValue('id');
             const nameToSet = poet.getDataValue('item_id');
-            fs.copyFile(uploadDir +  '/' + nameToGet + imgExt, uploadDir + '/' + nameToSet + imgExt, (err) => {
-              if (err) {
-                reject(err);
-              } else {
-                resolve();
-              }
+            return poet.save()
+            .then(() => {
+              return fs.copyFile(uploadDir +  '/' + nameToGet + imgExt, uploadDir + '/' + nameToSet + imgExt, (err) => {
+                if(err) return err;
+                return;
+              });
             });
-          });
+          } else {
+            return poet;
+          }
         }));
-        return Promise.all([prom1, prom2]);
-      });
-    })
-    ;
+      })
+      .catch(err => console.log(err));
+    });
   },
 };
 

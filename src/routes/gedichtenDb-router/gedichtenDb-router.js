@@ -11,10 +11,8 @@ const gedichtenDbManager = require('./gedichtenDb-manager');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
-const sequelize = new Sequelize('sqlite:' + dbPath, {logging: false});
-const seqStore = new SequelizeStore({
-  db: sequelize
-});
+const sequelize = new Sequelize('sqlite:' + dbPath);
+const seqStore = new SequelizeStore({db: sequelize});
 
 //sequelize.sync();
 

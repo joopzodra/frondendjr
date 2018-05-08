@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const pug = require('pug');
 const helmet = require('helmet');
 const favicon = require('serve-favicon');
 const fs = require('fs');
@@ -9,7 +8,6 @@ const fs = require('fs');
 const postlist = require('./views/posts/postlist');
 const goodReadsRouter = require('./routes/goodreads-router');
 const gedichtenDbRouter = require('./routes/gedichtenDb-router/gedichtenDb-router');
-const iframeContentPath = path.resolve(__dirname, 'public/apps');
 
 app.set('port', 8000);
 app.set('view engine', 'pug');
@@ -79,8 +77,12 @@ app.use((err, req, res, next) => {
   res.send('Er is helaas een probleem met de server. Probeer het later opnieuw.');
 });
 
-app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
   console.log('listening at port ', app.get('port'));
 });
+
+// Socket (for gedichtenDb-router)
+const io = require('socket.io')(server);
+require('./routes/gedichtenDb-router/gedichtenDb-socket')(io);
 
 module.exports = app;

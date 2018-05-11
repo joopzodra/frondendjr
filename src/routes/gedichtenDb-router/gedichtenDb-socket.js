@@ -16,12 +16,12 @@ Poem.belongsTo(Poet, {foreignKey: 'poet_id', targetKey: 'id'});
 Poem.belongsTo(Bundle, {foreignKey: 'bundle_id', targetKey: 'id'});
 
 module.exports = (io) => {
-  new cronJob('00,24,40 * * * * *', emitFragment, null, true);
+  new cronJob('00,20,40 * * * * *', emitFragment, null, true);
   io.on('connection', socket => {
     Fragment.findAll()
     .then(poems => socket.emit('connected', poems));
-    emitter.on('fragmentAdded', fragment => socket.emit('poemAdded', fragment));
   });  
+  emitter.on('fragmentAdded', fragment => io.sockets.emit('poemAdded', fragment));
 };
 
 function emitFragment() {
@@ -39,7 +39,7 @@ function getFragment() {
   .then(arrayOfPoemIdArrays => {
     const list = [];
     arrayOfPoemIdArrays.forEach(arr => list.push(...arr));
-    const randomIndex = Math.round(Math.random()*256);
+    const randomIndex = Math.round(Math.random()*(list.length - 1));
     const poemId = list[randomIndex];
     return Poem.findById(poemId, { include: [Poet, Bundle]}); 
   })
@@ -54,7 +54,8 @@ function getFragment() {
       poet: poem.poet.name,
       poet_img: poem.poet.img_url,
       source_url_label: poem.url_label,
-      source_url: poem.url
+      source_url: poem.url,
+      time: convertDateTime(new Date())
     });
   })
   .catch(err => console.log(err));
@@ -70,4 +71,15 @@ function limitTable() {
       return Fragment.destroy({where:{},limit: 1}).then(() => limitTable());
     }
   });  
+}
+
+function convertDateTime(dateTime) {
+  const monthes = ['jan', 'feb', 'mrt', 'apr', 'mei', 'juni', 'juli', 'aug', 'sept', 'okt', 'nov', 'dec'];
+  const day = dateTime.getDate();
+  const monthIndex = dateTime.getMonth();
+  const year = dateTime.getFullYear();
+  const hour = dateTime.getHours();
+  let minutes = dateTime.getMinutes();
+  minutes = minutes.length === 1 ? '0' + minutes : minutes
+  return `${day} ${monthes[monthIndex]} ${year}, ${hour}.${minutes} uur`;
 }

@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     source_url: {
       type: DataTypes.TEXT
+    },
+    time: {
+      type: DataTypes.TEXT
     }
   });
 

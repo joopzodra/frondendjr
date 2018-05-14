@@ -9,6 +9,7 @@ const setupPassport = require('./setup-passport');
 const gedichtenDbAuth = require('./gedichtenDb-auth');
 const gedichtenDbManager = require('./gedichtenDb-manager');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const gedichtenDbFragments = require('./gedichtenDb-fragments');
 
 const dbPath = path.join(__dirname, 'gedichtenDb.db');
 const sequelize = new Sequelize('sqlite:' + dbPath);
@@ -40,5 +41,6 @@ setupPassport();
 
 gedichtenDb.use('/auth', gedichtenDbAuth);
 gedichtenDb.use('/manager', gedichtenDbManager);
+gedichtenDb.use('/fragments', gedichtenDbFragments.fragmentsRouter);
 
 module.exports = gedichtenDb;

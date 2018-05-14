@@ -8,6 +8,7 @@ const fs = require('fs');
 const postlist = require('./views/posts/postlist');
 const goodReadsRouter = require('./routes/goodreads-router');
 const gedichtenDbRouter = require('./routes/gedichtenDb-router/gedichtenDb-router');
+const gedichtenDbFragments = require('./routes/gedichtenDb-router/gedichtenDb-fragments');
 
 app.set('port', 8000);
 app.set('view engine', 'pug');
@@ -81,8 +82,9 @@ const server = app.listen(app.get('port'), () => {
   console.log('listening at port ', app.get('port'));
 });
 
-// Socket (for gedichtenDb-router)
+// For gedichtenDb-router: generete poem fragments in cronJob and emit them over a socket
 const io = require('socket.io')(server);
-require('./routes/gedichtenDb-router/gedichtenDb-socket')(io);
+gedichtenDbFragments.cronJob.start();
+gedichtenDbFragments.emitter.on('fragmentAdded', fragment => io.sockets.emit('poemAdded', fragment));
 
 module.exports = app;

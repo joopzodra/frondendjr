@@ -1,8 +1,20 @@
 {
-	"folders":
-	[
-		{
-			"path": "."
-		}
-	]
+  "folders":
+  [
+    {
+      "path": "."
+    }
+  ],
+      "SublimeLinter":
+    {
+        "linters":
+        {
+            "jshint": {
+                "disable": true
+            },
+            "eslint": {
+                "excludes": "*/*.pug"
+            }
+        }
+    }
 }

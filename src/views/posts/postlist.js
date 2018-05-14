@@ -2,7 +2,12 @@ let postlist =
 [ { key: 'Webapps',
     catDescription: 'Webapps bekijk je in de browser op smartphone, tablet of pc. Het onderscheid tussen websites en webapps is diffuus. Een webapp is gericht op doen en interactie. Een website op bekijken of lezen van content. Deze apps zijn gemaakt met Angular.',
     value: 
-     [ { fileName: '2018-03-06-vershouder',
+     [ { fileName: '2018-05-14-dagelijks-vers',
+         title: 'Dagelijks vers',
+         category: 'Webapps',
+         description: 'Een app die je elke dag een lekker behapbare portie versregels voorschotelt.',
+         featuredImg: '/img/featured-img/vershouder-200.jpg' },
+       { fileName: '2018-03-06-vershouder',
          title: 'Database manager',
          category: 'Webapps',
          description: 'Voor een database met gedichten: bekijk, wijzig en upload de verzen in de database.',

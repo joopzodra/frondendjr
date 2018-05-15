@@ -23,7 +23,7 @@ module.exports = {
 
 gedichtenDbFragments.get('/', (req, res, next) => {
   const offset =  +arrayWrap(req.query.offset || '0')[0];
-  let limit = +arrayWrap(req.query.limit || '5')[0];
+  let limit = +arrayWrap(req.query.limit || '20')[0];
 
   const findAll = Fragment.count().then(count => {
     // some computing because we want offset starting from the last, most recent, row
@@ -94,7 +94,7 @@ function getFragment() {
 }
 
 function limitTable() {
-  const limit = 35;
+  const limit = 300;
   return Fragment.count()
   .then(count => {
     if (count <= limit) {

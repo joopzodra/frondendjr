@@ -16,7 +16,7 @@ const emitter = new events.EventEmitter();
 
 // export an object for app.js, where the object becomes: const gedichtenDbFragments
 module.exports = {
-  cronJob: new cronJob('00,20,40 * * * * *', emitFragment),
+  cronJob: new cronJob('00,30 * * * * *', emitFragment),
   emitter: emitter,
   fragmentsRouter: gedichtenDbFragments 
 };

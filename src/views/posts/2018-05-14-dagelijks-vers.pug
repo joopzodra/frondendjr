@@ -7,22 +7,25 @@ block vars
   - var title = 'Dagelijks vers'
   - var description = 'Een app die je elke dag een lekker behapbare portie versregels voorschotelt.'
   - var category = 'Webapps'
-  - var featuredImg = '/img/featured-img/vershouder-200.jpg'
+  - var featuredImg = '/img/featured-img/dagelijks-vers-200.jpg'
 
 
 block articlecontent
   .intro
     p 
-      |Voor een later te bouwen app heb ik een database op de server nodig met gedichten. De app die je op deze pagina vindt, is bedoeld om die database te beheren. Je kunt ermee gedichten op de server uploaden, wijzigen of verwijderen. Omdat dichters hun gedichten graag 'verzen' noemen, heet deze app 'Vershouder'.   
-    p Om de app te bekijken kun je een gebruikernaam en wachtwoord kiezen. Met je account kun je naar hartelust van alles uitproberen en overhoop halen.
+      |In gedichten vind je prachtige regels. Maar wie leest er nu regelmatig een heel gedicht? De 'Dagelijks vers' app geeft je elke dag twee keer een fragmentje van vier regels. Altijd verrassend: de regels worden willekeurig gekozen uit al de gedichten die met de Vershouder app zijn opgeslagen een de database.
     p.go-to-app-button-par
       a(href='/apps/dagelijks-vers' class='w3-button w3-theme go-to-app-button') Ga naar de app
     p.article-featured-img
       a(href='/apps/vershouder')
-        img(src="/img/featured-img/vershouder-600.jpg")
+        img(src="/img/featured-img/dagelijks-vers-600.jpg")
     h2 Info
+    p Het is een demo app, dus er zijn wat aanpassingen:  
+    ul 
+      li In de database staan maar enkele gedichten, bovendien zijn het gedichten uit de periode van ongeveer 1900-1950 omdat latere gedichten niet vrij te gebruiken zijn. Je krijgt in de app dus veel fragmenten uit dezelfde gedichten.
+      li De app genereert elke minuut twee gedichten in plaats van elke dag twee. Daardoor zie je in deze demo al snel dat een fragment wordt toegevoegd. 
     p
       |De app is gemaakt met Vue. 
-      a(href='https://github.com/joopzodra/vershouder') Bekijk de broncode van de app op GitHub.
+      
 
 block footerScripts

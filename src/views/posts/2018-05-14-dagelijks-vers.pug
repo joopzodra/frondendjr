@@ -5,7 +5,7 @@ block base
 
 block vars
   - var title = 'Dagelijks vers'
-  - var description = 'Een app die je elke dag een lekker behapbare portie versregels voorschotelt.'
+  - var description = 'Een app die je continue nieuwe porties dichtregels voorschotelt.'
   - var category = 'Webapps'
   - var featuredImg = '/img/featured-img/dagelijks-vers-200.jpg'
 
@@ -13,19 +13,23 @@ block vars
 block articlecontent
   .intro
     p 
-      |In gedichten vind je prachtige regels. Maar wie leest er nu regelmatig een heel gedicht? De 'Dagelijks vers' app geeft je elke dag twee keer een fragmentje van vier regels. Altijd verrassend: de regels worden willekeurig gekozen uit al de gedichten die met de Vershouder app zijn opgeslagen een de database.
+      |Een lijst-app waarvan de updates geen berichtjes zijn maar versregels: elke 15 seconden een nieuw fragmentje van vier regels uit een gedicht.
+    p Je kunt desgewenst fragmentjes opslaan in de browser. De bewaarde fragmentjes staan onder 'Voorraad'.
     p.go-to-app-button-par
       a(href='/apps/dagelijks-vers' class='w3-button w3-theme go-to-app-button') Ga naar de app
     p.article-featured-img
-      a(href='/apps/vershouder')
+      a(href='/apps/dagelijks-vers')
         img(src="/img/featured-img/dagelijks-vers-600.jpg")
     h2 Info
-    p Het is een demo app, dus er zijn wat aanpassingen:  
-    ul 
-      li In de database staan maar enkele gedichten, bovendien zijn het gedichten uit de periode van ongeveer 1900-1950 omdat latere gedichten niet vrij te gebruiken zijn. Je krijgt in de app dus veel fragmenten uit dezelfde gedichten.
-      li De app genereert elke minuut twee gedichten in plaats van elke dag twee. Daardoor zie je in deze demo al snel dat een fragment wordt toegevoegd. 
     p
-      |De app is gemaakt met Vue. 
+      |De dichtregels worden willekeurig gekozen uit de gedichten die met de 
+      a(href='/2018-03-06-vershouder') Vershouder app
+      |  zijn opgeslagen een database.
+    p In de database staan maar enkele gedichten, bovendien zijn het gedichten uit de periode van ongeveer 1900-1950 omdat latere gedichten niet vrij te gebruiken zijn. Je ziet in de app dus veel fragmenten uit dezelfde gedichten.
+    p De verse aanvoer van fragmenten gebeurt via een socket-verbinding met de backend.
+    p De 'Dagelijks vers' app is gemaakt met Vue.
+    p 
+      a(href='https://github.com/joopzodra/dagelijks-vers') Bekijk de broncode op Github.   
       
 
 block footerScripts

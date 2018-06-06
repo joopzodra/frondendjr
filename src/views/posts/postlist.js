@@ -5,7 +5,7 @@ let postlist =
      [ { fileName: '2018-05-14-dagelijks-vers',
          title: 'Dagelijks vers',
          category: 'Webapps',
-         description: 'Een app die je elke dag een lekker behapbare portie versregels voorschotelt.',
+         description: 'Een app die je continue nieuwe porties dichtregels voorschotelt.',
          featuredImg: '/img/featured-img/dagelijks-vers-200.jpg' },
        { fileName: '2018-03-06-vershouder',
          title: 'Database manager',

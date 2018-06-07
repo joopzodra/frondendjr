@@ -1,6 +1,6 @@
 let postlist =
 [ { key: 'Webapps',
-    catDescription: 'Webapps bekijk je in de browser op smartphone, tablet of pc. Het onderscheid tussen websites en webapps is diffuus. Een webapp is gericht op doen en interactie. Een website op bekijken of lezen van content. Deze apps zijn gemaakt met Angular.',
+    catDescription: 'Webapps bekijk je in de browser op smartphone, tablet of pc. Het onderscheid tussen websites en webapps is diffuus. Een webapp is gericht op doen en interactie. Een website op bekijken of lezen van content. Deze apps zijn gemaakt met Angular of Vue.',
     value: 
      [ { fileName: '2018-05-14-dagelijks-vers',
          title: 'Dagelijks vers',

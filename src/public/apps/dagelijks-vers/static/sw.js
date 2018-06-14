@@ -22,19 +22,18 @@ workbox.routing.registerRoute(
   }),
   );
 
-const broadcastFeatureDetector = () => {
-  if ('BroadcastChannel' in self) {
-    return workbox.strategies.staleWhileRevalidate({
+if ('BroadcastChannel' in self) {
+  workbox.routing.registerRoute(
+    /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
+    workbox.strategies.staleWhileRevalidate({
       plugins: [
-      new workbox.broadcastUpdate.Plugin('fragments-updates')
+        new workbox.broadcastUpdate.Plugin('fragments-updates')
       ]
-    });
-  } else {
-    return workbox.strategies.networkFirst();
-  }
-};
-
-workbox.routing.registerRoute(
-  /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
-  broadcastFeatureDetector
-  )
+    })
+    )
+} else {
+  workbox.routing.registerRoute(
+    /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
+    workbox.strategies.networkFirst()
+    )  
+}

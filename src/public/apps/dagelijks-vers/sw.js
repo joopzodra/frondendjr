@@ -1,4 +1,4 @@
-importScripts("/apps/dagelijks-vers/precache-manifest.b0638341af7afd3f64bd1e1445090af8.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/apps/dagelijks-vers/precache-manifest.12a44e89263e2fbda5565c11e3ce277c.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 /* eslint-disable */
 
@@ -24,20 +24,19 @@ workbox.routing.registerRoute(
   }),
   );
 
-const broadcastFeatureDetector = () => {
-  if ('BroadcastChannel' in self) {
-    return workbox.strategies.staleWhileRevalidate({
+if ('BroadcastChannel' in self) {
+  workbox.routing.registerRoute(
+    /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
+    workbox.strategies.staleWhileRevalidate({
       plugins: [
-      new workbox.broadcastUpdate.Plugin('fragments-updates')
+        new workbox.broadcastUpdate.Plugin('fragments-updates')
       ]
-    });
-  } else {
-    return workbox.strategies.networkFirst();
-  }
-};
-
-workbox.routing.registerRoute(
-  /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
-  broadcastFeatureDetector
-  )
+    })
+    )
+} else {
+  workbox.routing.registerRoute(
+    /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
+    workbox.strategies.networkFirst()
+    )  
+}
 

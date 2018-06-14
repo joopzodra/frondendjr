@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "9338c4acdf986cc411d671421785e490",
+    "revision": "abe545717954c9f611f805cf178836e2",
     "url": "/apps/dagelijks-vers/static/sw.js"
   },
   {

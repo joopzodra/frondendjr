@@ -1,4 +1,4 @@
-importScripts("/apps/dagelijks-vers/precache-manifest.a2c5b6df3a77ebe0ee9dff2cb375a1b1.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/apps/dagelijks-vers/precache-manifest.d336ec009bb995cb9983ed36e619b387.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 /* eslint-disable */
 

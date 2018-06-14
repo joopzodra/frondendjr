@@ -22,11 +22,19 @@ workbox.routing.registerRoute(
   }),
   );
 
+const broadcastFeatureDetector = () => {
+  if ('BroadcastChannel' in self) {
+    return workbox.strategies.staleWhileRevalidate({
+      plugins: [
+      new workbox.broadcastUpdate.Plugin('fragments-updates')
+      ]
+    });
+  } else {
+    return workbox.strategies.networkFirst();
+  }
+};
+
 workbox.routing.registerRoute(
   /https:\/\/frontendjr\.nl\/gedichtenDb\/fragments.*$/,
-  workbox.strategies.staleWhileRevalidate({
-    plugins: [
-      new workbox.broadcastUpdate.Plugin('fragments-updates')
-    ]
-  })
+  broadcastFeatureDetector
   )

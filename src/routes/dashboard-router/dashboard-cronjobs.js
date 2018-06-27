@@ -17,7 +17,6 @@ module.exports = {
 };
 
 function updateNews() {
-  getForecast();
 }
 function getQuarterlyNews() {
   getNosNews();

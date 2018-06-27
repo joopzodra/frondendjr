@@ -9,6 +9,8 @@ const postlist = require('./views/posts/postlist');
 const goodReadsRouter = require('./routes/goodreads-router');
 const gedichtenDbRouter = require('./routes/gedichtenDb-router/gedichtenDb-router');
 const gedichtenDbFragments = require('./routes/gedichtenDb-router/gedichtenDb-fragments');
+const dashboardRouter = require('./routes/dashboard-router/dashboard-router');
+const dashboardCronJobs = require('./routes/dashboard-router/dashboard-cronjobs');
 
 app.set('port', 8000);
 app.set('view engine', 'pug');
@@ -25,6 +27,7 @@ if (process.env.NODE_ENV === 'production') {
 /* Routes are used by calls of FrontendJR apps to the backend */
 app.use('/goodReads', goodReadsRouter);
 app.use('/gedichtenDb', gedichtenDbRouter);
+app.use('/dashboard', dashboardRouter);
 
 app.get('/', (req, res) => {
   res.render('home', {
@@ -86,5 +89,12 @@ const server = app.listen(app.get('port'), () => {
 const io = require('socket.io')(server);
 gedichtenDbFragments.cronJob.start();
 gedichtenDbFragments.emitter.on('fragmentAdded', fragment => io.sockets.emit('poemAdded', fragment));
+
+// For dashboard-router: start cron jobs to get news and to store in dashboard database
+for (key in dashboardCronJobs) {
+  if (dashboardCronJobs.hasOwnProperty(key)) {
+    dashboardCronJobs[key].start();
+  }
+}
 
 module.exports = app;

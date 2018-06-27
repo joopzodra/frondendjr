@@ -22,14 +22,17 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-rc.4",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
     "sequelize": "^4.31.2",
     "serve-favicon": "^2.4.5",
     "socket.io": "^2.1.0",
     "sqlite3": "^3.1.13",
-    "valid-url": "^1.0.9"
+    "valid-url": "^1.0.9",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.24.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cssnano": "^2.1.2",

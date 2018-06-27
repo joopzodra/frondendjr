@@ -1,0 +1,101 @@
+[
+  {
+    "id": 2759794,
+    "name": "Amsterdam",
+    "country": "NL",
+    "coord": {
+      "lon": 4.88969,
+      "lat": 52.374031
+    }
+  },
+  {
+    "id": 2747891,
+    "name": "Rotterdam",
+    "country": "NL",
+    "coord": {
+      "lon": 4.47917,
+      "lat": 51.922501
+    }
+  },
+  {
+    "id": 2745912,
+    "name": "Utrecht",
+    "country": "NL",
+    "coord": {
+      "lon": 5.12222,
+      "lat": 52.090832
+    }
+  },
+  {
+    "id": 2755251,
+    "name": "Groningen",
+    "country": "NL",
+    "coord": {
+      "lon": 6.56667,
+      "lat": 53.21917
+    }
+  },
+  {
+    "id": 2743478,
+    "name": "Zwolle",
+    "country": "NL",
+    "coord": {
+      "lon": 6.65556,
+      "lat": 52.03167
+    }
+  },
+  {
+    "id": 2756071,
+    "name": "Enschede",
+    "country": "NL",
+    "coord": {
+      "lon": 6.89583,
+      "lat": 52.21833
+    }
+  },
+  {
+    "id": 2750053,
+    "name": "Nijmegen",
+    "country": "NL",
+    "coord": {
+      "lon": 5.85278,
+      "lat": 51.842499
+    }
+  },
+  {
+    "id": 2756253,
+    "name": "Eindhoven",
+    "country": "NL",
+    "coord": {
+      "lon": 5.47778,
+      "lat": 51.44083
+    }
+  },
+  {
+    "id": 2751283,
+    "name": "Maastricht",
+    "country": "NL",
+    "coord": {
+      "lon": 5.68889,
+      "lat": 50.848331
+    }
+  },
+  {
+    "id": 2750896,
+    "name": "Middelburg",
+    "country": "NL",
+    "coord": {
+      "lon": 3.61389,
+      "lat": 51.5
+    }
+  },
+  {
+    "id": 2757220,
+    "name": "Den Helder",
+    "country": "NL",
+    "coord": {
+      "lon": 4.75933,
+      "lat": 52.959881
+    }
+  }              
+]

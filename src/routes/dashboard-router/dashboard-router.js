@@ -39,7 +39,7 @@ dashboard.get('/nos-news?*', function(req, res, next) {
     return {
       title: item.title[0],
       trailText: regexResult ? regexResult[1] : '',
-      thumbnail: item.enclosure[0].$.url,
+      thumbnail: item.enclosure ? item.enclosure[0].$.url : '',
       body: includeBody === "true" ? item.description[0] : ''
     }
   }))
@@ -69,7 +69,7 @@ dashboard.use(function(req, res) {
 
 dashboard.use(function(err, req, res, next) {
   console.log(err);
-  const message = 'Er is een probleem met de database van de dashboard app.'
+  const message = 'Er is een probleem met de database.'
   res.status(500);
   res.send(message);
 })

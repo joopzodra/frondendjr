@@ -13,7 +13,7 @@ module.exports = {
   cronJob: new cronJob('00,20,40 * * * * *', updateNews),
   cronJobQuarterly: new cronJob('00 00,15,30,45 * * * *', getQuarterlyNews),
   cronJobHalfHourly: new cronJob('00 01,31 * * * *', getHalfHourlyNews),
-  cronJobFourHourly: new cronJob('00 02 0,8,12,16,20 * * *', getFourHourlyNews)
+  cronJobThreeHourly: new cronJob('00 02 0,6,9,12,15,18,21 * * *', getThreeHourlyNews)
 };
 
 function updateNews() {
@@ -23,10 +23,10 @@ function getQuarterlyNews() {
 }
 function getHalfHourlyNews() {
   getCurrentWeather()  
-}
-function getFourHourlyNews() {
-  getGuardianNews();
   getForecast();
+}
+function getThreeHourlyNews() {
+  getGuardianNews();
 }
 
 /* Guardian */

@@ -49,17 +49,25 @@ dashboard.get('/nos-news?*', function(req, res, next) {
 
 dashboard.get('/openweathermap?*', function(req, res, next) {
   const city = arrayWrap(req.query['city' || ''])[0];
-  OpenWeatherMapItem.findOne({attributes:['current_weather', 'forecast'], where: {city: city}})
-  .then(item => {
-    if (item) {
-      return     {
-        current_weather: JSON.parse(item.current_weather),
-        forecast: JSON.parse(item.forecast)
-      }      
-    }
-  })
-  .then(item => res.json(item))
-  .catch(err => next(err));
+  if (city === 'listcitynames') {
+    OpenWeatherMapItem.findAll({attributes: ['current_weather']})
+    .then(items => {
+      const cityNames = items.map(item => JSON.parse(item.current_weather).city)
+      res.json(cityNames)
+    })
+  } else {
+    OpenWeatherMapItem.findOne({attributes:['current_weather', 'forecast'], where: {city: city}})
+    .then(item => {
+      if (item) {
+        return     {
+          current_weather: JSON.parse(item.current_weather),
+          forecast: JSON.parse(item.forecast)
+        }      
+      }
+    })
+    .then(item => res.json(item))
+    .catch(err => next(err));    
+  }
 })
 
 dashboard.use(function(req, res) {

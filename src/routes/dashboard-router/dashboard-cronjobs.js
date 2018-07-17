@@ -118,7 +118,7 @@ function getForecast() {
           wind_direction: Math.round(data.wind.deg)
         }
       });
-      return OpenWeatherMapItem.update({forecast: JSON.stringify({city: cityName, data: selectedData})}, {where: {city: cityName}});
+      return OpenWeatherMapItem.update({forecast: JSON.stringify({city: cityName, data: selectedData})}, {where: {city: cityName.toLowerCase().replace(/ /g, '')}});
     })
     .catch(err => console.log(err));
   })

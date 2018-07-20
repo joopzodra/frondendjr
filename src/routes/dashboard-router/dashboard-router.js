@@ -13,7 +13,7 @@ const OpenWeatherMapItem = sequelize.import(path.join(__dirname, 'models/openwea
 
 // sequelize.sync();
 
-dashboard.get('/guardian-news?*', function(req, res, next) {
+dashboard.get('/guardian-news', function(req, res, next) {
   const pageSize = arrayWrap(req.query['page-size'] || '')[0];
   const includeBody = arrayWrap(req.query['include-body' || ''])[0];
   GuardianItem.findAll({limit: pageSize, attributes: ['data']})
@@ -28,7 +28,7 @@ dashboard.get('/guardian-news?*', function(req, res, next) {
   .catch(err => next(err))
 });
 
-dashboard.get('/nos-news?*', function(req, res, next) {
+dashboard.get('/nos-news', function(req, res, next) {
   const regex = RegExp('<p>(.*?)<\/p>')
   const pageSize = arrayWrap(req.query['page-size'] || '')[0];
   const includeBody = arrayWrap(req.query['include-body' || ''])[0];
@@ -47,7 +47,7 @@ dashboard.get('/nos-news?*', function(req, res, next) {
   .catch(err => next(err));
 });
 
-dashboard.get('/openweathermap?*', function(req, res, next) {
+dashboard.get('/openweathermap', function(req, res, next) {
   const city = arrayWrap(req.query['city' || ''])[0];
   if (city === 'listcitynames') {
     OpenWeatherMapItem.findAll({attributes: ['current_weather']})

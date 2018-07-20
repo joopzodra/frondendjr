@@ -12,6 +12,12 @@ const gedichtenDbFragments = require('./routes/gedichtenDb-router/gedichtenDb-fr
 const dashboardRouter = require('./routes/dashboard-router/dashboard-router');
 const dashboardCronJobs = require('./routes/dashboard-router/dashboard-cronjobs');
 
+if (process.env.NODE_ENV !== 'production') {
+  // enable requests by mobile apps in local network during development
+  const cors = require('cors');
+  app.use(cors());
+}
+
 app.set('port', 8000);
 app.set('view engine', 'pug');
 app.set('views', path.resolve(__dirname, 'views'));

@@ -55,6 +55,15 @@ dashboard.get('/openweathermap', function(req, res, next) {
       const cityNames = items.map(item => JSON.parse(item.current_weather).city)
       res.json(cityNames)
     })
+  } else if (city === 'all') {
+    OpenWeatherMapItem.findAll({attributes:['city', 'current_weather', 'forecast']})
+    .then(items => items.map(item => ({
+      city: item.city,
+      current_weather: JSON.parse(item.current_weather),
+      forecast: JSON.parse(item.forecast)
+    })))
+    .then(item => res.json(item))
+    .catch(err => next(err));
   } else {
     OpenWeatherMapItem.findOne({attributes:['current_weather', 'forecast'], where: {city: city}})
     .then(item => {

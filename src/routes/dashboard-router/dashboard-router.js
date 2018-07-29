@@ -7,9 +7,11 @@ const path = require('path');
 const dbPath = path.join(__dirname, 'dashboard.db');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('sqlite:' + dbPath, {logging: true});
+const Op = Sequelize.Op;
 const GuardianItem = sequelize.import(path.join(__dirname, 'models/guardian-item'));
 const NosItem = sequelize.import(path.join(__dirname, 'models/nos-item'));
 const OpenWeatherMapItem = sequelize.import(path.join(__dirname, 'models/openweathermap-item'));
+const IexItem = sequelize.import(path.join(__dirname, 'models/iex-item'));
 
 // sequelize.sync();
 
@@ -48,7 +50,7 @@ dashboard.get('/nos-news', function(req, res, next) {
 });
 
 dashboard.get('/openweathermap', function(req, res, next) {
-  const city = arrayWrap(req.query['city' || ''])[0];
+  const city = arrayWrap(req.query['city'] || '')[0];
   if (city === 'listcitynames') {
     OpenWeatherMapItem.findAll({attributes: ['current_weather']})
     .then(items => {
@@ -62,7 +64,7 @@ dashboard.get('/openweathermap', function(req, res, next) {
       current_weather: JSON.parse(item.current_weather),
       forecast: JSON.parse(item.forecast)
     })))
-    .then(item => res.json(item))
+    .then(items => res.json(items))
     .catch(err => next(err));
   } else {
     OpenWeatherMapItem.findOne({attributes:['current_weather', 'forecast'], where: {city: city}})
@@ -78,6 +80,46 @@ dashboard.get('/openweathermap', function(req, res, next) {
     .catch(err => next(err));    
   }
 })
+
+dashboard.get('/iex', function(req, res, next) {
+  const widgetCompanies = ['AAPL', 'GOOG', 'FB'];
+  const company = arrayWrap(req.query['company'] || '')[0];
+  if (company === 'widget') {
+    IexItem.findAll({attributes: ['company', 'quote', 'day'], where: {symbol: {
+      [Op.or]: widgetCompanies
+    }}})
+    .then(items => items.map(item => {
+      const parsedQuote = JSON.parse(item.quote);
+      return {
+        company: item.company,
+        quote: parsedQuote.quote_data,
+        day: JSON.parse(item.day)
+      }
+    }))
+    .then(items => res.json(items))
+    .catch(err => next(err));
+  } else if (company === 'all') {
+    IexItem.findAll({attributes: ['company', 'quote', 'day']})
+    .then(items => items.map(item => {
+      const parsedQuote = JSON.parse(item.quote);
+      return {
+        companySymbol: parsedQuote.symbol,
+        quote: parsedQuote.quote_data,
+        day: JSON.parse(item.day)
+      }
+    }))
+    .then(items => res.json(items))
+    .catch(err => next(err));
+  } else {
+    IexItem.findOne({attributes: ['company', 'month', 'two_years'], where: {symbol: companySymbol.toUpperCase()}})
+    .then(item => ({
+      month: JSON.parse(item.month),
+      twoYears: JSON.parse(item.two_years)
+    }))
+    .then(item => res.json(item))
+    .catch(err => next(err));
+  }
+});
 
 dashboard.use(function(req, res) {
   res.status(404);

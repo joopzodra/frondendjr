@@ -8,18 +8,22 @@ const sequelize = new Sequelize('sqlite:' + dbPath, {logging: false});
 const GuardianItem = sequelize.import(path.join(__dirname, 'models/guardian-item'));
 const NosItem = sequelize.import(path.join(__dirname, 'models/nos-item'));
 const OpenWeatherMapItem = sequelize.import(path.join(__dirname, 'models/openweathermap-item'));
+const IexItem = sequelize.import(path.join(__dirname, 'models/iex-item'));
+const { DateTime } = require('luxon');
 
 module.exports = {
   cronJob: new cronJob('00,20,40 * * * * *', updateNews),
   cronJobQuarterly: new cronJob('00 00,15,30,45 * * * *', getQuarterlyNews),
   cronJobHalfHourly: new cronJob('00 01,31 * * * *', getHalfHourlyNews),
-  cronJobThreeHourly: new cronJob('00 02 0,6,9,12,15,18,21 * * *', getThreeHourlyNews)
+  cronJobThreeHourly: new cronJob('00 02 0,6,9,12,15,18,21 * * *', getThreeHourlyNews),
+  cronJobDaily: new cronJob('00 33 23 * * *', getDailyNews)
 };
 
 function updateNews() {
 }
 function getQuarterlyNews() {
   getNosNews();
+  getIexDay();
 }
 function getHalfHourlyNews() {
   getCurrentWeather()  
@@ -27,6 +31,9 @@ function getHalfHourlyNews() {
 }
 function getThreeHourlyNews() {
   getGuardianNews();
+}
+function getDailyNews() {
+  getIexLongterm();
 }
 
 /* Guardian */
@@ -122,4 +129,119 @@ function getForecast() {
     })
     .catch(err => console.log(err));
   })
+}
+
+/* IEX */
+function timeMsToIso(timeInMs) {
+  const newYorkTimeIso = DateTime.fromMillis(timeInMs).setZone('America/New_York');
+  const amsterdamTimeIso = DateTime.fromISO(newYorkTimeIso, {zone: 'Europe/Amsterdam'});
+  const weekday = newYorkTimeIso.weekday;
+  return {newYorkTimeIso: newYorkTimeIso, amsterdamTimeIso: amsterdamTimeIso, weekday: weekday}
+}
+const companySymbols = 'aapl,googl,goog,msft,fb,intc,adbe,twtr,asml,nxpi,inxn';
+function getIexDay() {
+  const urlDay = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${companySymbols}&types=quote,chart&range=1d&chartSimplify=true`;
+  request(urlDay)
+  .then(res => {
+    const processed = processIexQuotesAndCharts(res);
+    const processedQuotes = processed.quotes;
+    const processedCharts = processed.charts;
+    const quotesPromises = processedQuotes.map(company => updateIexQuoteColumn(company));
+    const chartsPromises = processedCharts.map(company => updateIexChartColumn(company, 'day'));
+    const allPromises = chartsPromises.reduce((collector, item) => {
+      collector.push(item);
+      return collector;
+    }, quotesPromises);
+    return Promise.all(allPromises)
+  })
+  .catch(err => console.log(err));
+}
+function getIexLongterm() {
+ const urlMonth = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${companySymbols}&types=chart&range=1m&chartSimplify=true`;
+ const urlTwoYears = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${companySymbols}&types=chart&range=2y&chartSimplify=true`;
+
+ [['month', urlMonth],['two_years', urlTwoYears]]
+ .forEach(url => {
+  request(url[1])
+  .then(res => {
+    const processedCharts = processIexLongtermCharts(res);
+    return Promise.all(processedCharts.map(company => updateIexChartColumn(company, url[0])));
+  })
+  .catch(err => console.log(err));
+});
+}
+function processIexQuotesAndCharts(res) {
+  const parsed = JSON.parse(res);
+  const companySymbols = Object.keys(parsed);
+  const processedQuotes = companySymbols.map(companySymbol => processIexQuote(companySymbol, parsed));
+  const processedCharts = companySymbols.map(companySymbol => processIexDayChart(companySymbol, parsed));
+  return { quotes: processedQuotes, charts: processedCharts }
+}
+function processIexQuote(companySymbol, parsed) {
+  const companyQuote = parsed[companySymbol].quote;
+  return {
+    symbol: companySymbol,
+    quoteData: {
+      company_name: companyQuote.companyName,
+      latest_update: timeMsToIso(companyQuote.latestUpdate),
+      latest_price: companyQuote.latestPrice
+    }
+  }
+}
+function processIexDayChart(companySymbol, parsed) {
+  const companyChart = parsed[companySymbol].chart;
+  return {
+    symbol: companySymbol,
+    chartData: companyChart.map(chartItem => {
+      return {
+        date: chartItem.date,
+        time: chartItem.minute,
+        price: chartItem.close
+      }
+    })
+  }
+}
+function processIexLongtermCharts(res) {
+  const parsed = JSON.parse(res);
+  const companySymbols = Object.keys(parsed);
+  const processed = companySymbols.map(companySymbol =>  processIexLongtermChart(companySymbol, parsed));
+  return processed;
+}
+function processIexLongtermChart(companySymbol, parsed) {
+  const companyChart = parsed[companySymbol].chart;
+  return {
+    symbol: companySymbol,
+    chartData: companyChart.map(chartItem => {
+      return {
+        date: chartItem.date,
+        price: chartItem.close
+      }
+    })
+  }
+}
+function updateIexQuoteColumn(company) {
+      return IexItem.update({
+        quote: JSON.stringify({
+          symbol: company.symbol,
+          quote_data: company.quoteData
+        })
+      },
+      {
+        where: {
+          symbol: company.symbol
+        }
+      })
+}
+function updateIexChartColumn(company, column) {
+      return IexItem.update({
+        [column]: JSON.stringify({
+          symbol: company.symbol,
+          chart_data: company.chartData
+        })
+      },
+      {
+        where: {
+          symbol: company.symbol
+        }
+      })
 }

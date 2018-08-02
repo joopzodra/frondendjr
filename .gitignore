@@ -7,4 +7,5 @@ HOWTO.txt
 src/routes/**/*.db
 src/routes/**/*.sqlite
 
+# We must ignore the uploads directory because there is no sychronicity between local dev and server side, because users of the Vershouder app can upload or copy their own poet's images.
 src/public/uploads/

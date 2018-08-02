@@ -1,0 +1,9 @@
+<svg class="align-middle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" width="28" height="28">
+<style type="text/css">
+  .iex-logo-background{fill:#ffd26e;}
+  .align-middle{vertical-align:middle;}
+  .fill-orange{fill:#ffa200;}
+</style>
+  <rect class="iex-logo-background" width="5" height="5"></rect>
+  <path class="fill-orange" d="M0,0v5h5V0z M1,1h3v3H2V3H1z"></path>
+</svg>

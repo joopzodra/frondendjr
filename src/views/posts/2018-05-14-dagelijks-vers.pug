@@ -1,18 +1,14 @@
 extends ../post
 
-block base
-  base(href='/2018-03-06-dagelijks-vers/')  
-
 block vars
   - var title = 'Dagelijks vers'
   - var description = 'Een app die je continue nieuwe porties dichtregels voorschotelt.'
   - var category = 'Webapps'
   - var featuredImg = '/img/featured-img/dagelijks-vers-200.jpg'
 
-
 block articlecontent
   .intro
-    p 
+    p
       |Een lijst-app waarvan de updates geen berichtjes zijn maar versregels: elke 15 seconden een nieuw fragmentje van vier regels uit een gedicht.
     p Je kunt desgewenst fragmentjes opslaan in de browser. De bewaarde fragmentjes staan onder 'Voorraad'.
     p.go-to-app-button-par
@@ -28,8 +24,7 @@ block articlecontent
     p In de database staan maar enkele gedichten, bovendien zijn het gedichten uit de periode van ongeveer 1900-1950 omdat latere gedichten niet vrij te gebruiken zijn. Je ziet in de app dus veel fragmenten uit dezelfde gedichten.
     p De verse aanvoer van fragmenten gebeurt via een socket-verbinding met de backend.
     p De 'Dagelijks vers' app is gemaakt met Vue.
-    p 
-      a(href='https://github.com/joopzodra/dagelijks-vers') Bekijk de broncode op Github.   
-      
+    p
+      a(href='https://github.com/joopzodra/dagelijks-vers') Bekijk de broncode op Github.
 
 block footerScripts

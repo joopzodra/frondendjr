@@ -1,0 +1,39 @@
+extends ../post
+
+block vars
+  - var title = 'Dashboard demo'
+  - var description = 'Dashboard met nieuws, weer en beurskoersen.'
+  - var category = 'Webapps'
+  - var featuredImg = '/img/featured-img/dashboard-demo-200.jpg'
+
+block articlecontent
+  .intro
+    p
+      |Een actueel overzicht van nieuws, tech nieuws, het weer en beurskoersen van enkele IT-bedrijven.Voor elke van deze rubrieken kun je ook doorklikken naar een pagina die meer berichten of meer data bevat.
+    p.go-to-app-button-par
+      a(href='/apps/dashboard-demo' class='w3-button w3-theme go-to-app-button') Ga naar de app
+    p.article-featured-img
+      a(href='/apps/dashboard-demo')
+        img(src="/img/featured-img/dashboard-demo-600.jpg")
+    h2 Info
+    p
+      |Het nieuws is van de 
+      a(href='http://nos.nl/') NOS
+      |.
+    p
+      |Het tech nieuws is van 
+      a(href='https://www.theguardian.com/uk/technology') The Guardian
+      |.
+    p
+      |Het weer is van 
+      a(href='https://openweathermap.org/') Openweathermap
+      |.
+    p
+      |En de beurskoersen komen van de New Yorkse 
+      a(href='https://iextrading.com/') IEX
+      |.
+    h2 Broncode
+    p 
+      a(href='https://github.com/joopzodra/dashboard-angular-mat') Bekijk de broncode op Github.
+
+block footerScripts
